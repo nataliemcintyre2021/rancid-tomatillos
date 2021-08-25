@@ -7,7 +7,7 @@ function App() {
   //console.log(movieData.movies[0], 'movieData<><><>')
   return (
     <div className="App">
-      <Row />
+      <Row title='All Movies' movieData={movieData.movies}/>
     </div>
   );
 }
