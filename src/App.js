@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import movieData from './mockData'
+import Posters from './Posters'
 
 function App() {
+  //console.log(movieData.movies[0], 'movieData<><><>')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Posters title='All Movies' movieData={movieData.movies} />
     </div>
   );
 }
