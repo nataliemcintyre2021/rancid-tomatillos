@@ -3,7 +3,16 @@ import React from 'react'
 function Row(props) {
   console.log(props)
   return (
-    <h1>Row</h1>
+
+
+    <div>
+      <h1>{props.title}</h1>
+      <img
+        key={props.movieData[0].id}
+        src={props.movieData[0].poster_path}
+        />
+    </div>
+
   )
 }
 
