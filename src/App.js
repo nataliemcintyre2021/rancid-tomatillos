@@ -1,9 +1,8 @@
 import React from 'react'
 import './App.css';
-import movieData from './mockData'
-import Posters from './Posters'
 import Header from './Header'
 import Footer from './Footer'
+import Main from './Main'
 
 function App() {
   //console.log(movieData.movies[0], 'movieData<><><>')
@@ -11,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Posters title='All Movies' movieData={movieData.movies} />
+      <Main />
       <Footer />
     </div>
   );
