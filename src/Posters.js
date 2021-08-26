@@ -1,7 +1,7 @@
 import React from 'react'
 import './Posters.css'
 
-function Row(props) {
+function Posters(props) {
   const movies = props.movieData.map(movie => (
     <img className="single-poster" key={movie.id} src={movie.poster_path} alt={movie.title}
     />
@@ -14,4 +14,4 @@ function Row(props) {
   )
 }
 
-export default Row
+export default Posters

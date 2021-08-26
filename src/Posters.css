@@ -1,6 +1,8 @@
 .row-posters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   width: 100%;
-  height: 50px;
 }
 
 .single-poster {
