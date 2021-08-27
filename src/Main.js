@@ -8,16 +8,37 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      movieData: movieData.movies
+      movieData: movieData.movies,
+      classes: true;
     }
   }
 
   hidePostersView(event) {
-    // if (event.target.parentElement.parentNode.classList.includes('hidden')) {
+
+      this.setState({ classes: })
       event.target.parentElement.parentNode.classList.add('hidden')
+      //show specific ExtendedView
+
 
   }
 
+  // render() {
+  //       if(this.state.classes) {
+  //           return (
+  //             <Header />
+  //             <Posters />
+  //             <Footer />
+  //           )
+  //       } else {
+  //           return (
+  //             <Header />
+  //             <ExtendedView id={event.target.id}/>
+  //             <Footer />
+  //           )
+  //       }
+  //   }
+//state starts out true (only render Posters component)
+//on poster click, changes state property to false
 
 //first function: hideShow() - this will toggle the hidden class
 
@@ -30,6 +51,7 @@ class Main extends React.Component {
 //findMovieById():
 //1. will need to find the movie by event target id (use find, event.target.id === movie.id)
 //2. return movie data
+
 
     render() {
       return (
