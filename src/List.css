@@ -4,14 +4,12 @@
   justify-content: center;
   color: black;
   background-color: white;
+  height: 500px;
+  overflow-y: scroll;
 }
 
 .list {
-  height: 500px;
-  overflow-y: scroll;
-  width: 600px;
-
-
+  width: 650px;
 }
 
 li {
