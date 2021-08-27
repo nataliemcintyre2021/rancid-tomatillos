@@ -1,7 +1,7 @@
 import React from 'react'
 import Posters from './Posters'
 import ExtendedView from './ExtendedView'
-import List from './List'
+// import List from './List'
 import movieData from './mockData'
 import './Main.css'
 
@@ -59,14 +59,14 @@ class Main extends React.Component {
     render() {
       return (
         <main className='main-section'>
-          <div className='all-movies-container'>
+          <div className='all-movies-container hidden'>
             <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
             <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
             <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
           </div>
-          <List movieData={this.state.movieData}/>
-          <div className='single-movie-container hidden'>
-            <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
+
+          <div className='single-movie-container'>
+            <ExtendedView singleMovieData={this.state.movieData} id={'1'} />
           </div>
         </main>
       )
@@ -80,5 +80,6 @@ class Main extends React.Component {
 //     </main>
 //   )
 // }
+
 
 export default Main

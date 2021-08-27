@@ -14,8 +14,14 @@ function ExtendedView(props) {
         key={singleMovie.id}
         src={singleMovie.backdrop_path}
       />
+      <section>
+        <p className="title">{singleMovie.title}</p>
+        <p className="title">{singleMovie.release_date}</p>
+        <p className="title">{singleMovie.overview}</p>
+      </section>
     </div>
   )
 }
 
 export default ExtendedView
+//backdrop image, cover, release data, description
