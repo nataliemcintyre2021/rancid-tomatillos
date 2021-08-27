@@ -27,9 +27,9 @@ class Main extends React.Component {
     return !this.state.isExtendedView ? (
       <main className='main-section'>
         <div className='all-movies-container'>
-          <Posters title='All Movies' movieData={this.state.movieData} />
-          <Posters title='More Movies' movieData={this.state.movieData} />
-          <Posters title='Even More Movies' movieData={this.state.movieData} />
+          <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+          <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+          <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
         </div>
         <List movieData={this.state.movieData}/>
       </main>
