@@ -8,22 +8,24 @@ function ExtendedView(props) {
   console.log(singleMovie)
 
   return(
-    <div className="extended-view">
-    <button>BACK</button>
-      <div
-        className="movie-image"
-        style={{backgroundImage: `url(${singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh", backgroundColor: 'rgba(0, 0, 0, .5)'}}>
-        <p className="title">{singleMovie.title}</p>
+    <div className="extended-page">
+      <button>BACK</button>
+      <div className="extended-view">
+        <div
+          className="movie-image"
+          style={{backgroundImage: `url(${singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}>
+          <p className="title">{singleMovie.title}</p>
+        </div>
+          <section className="movie-info">
+            <div className="date-time">
+              <p className="release-date">{singleMovie.release_date.split("").slice(0, 4).join("")}</p>
+              <p className="genre">{singleMovie.genres}</p>
+              <p className="runtime">{singleMovie.runtime} minutes</p>
+            </div>
+            <p className="tagline">{singleMovie.tagline}</p>
+            <p className="overview">{singleMovie.overview}</p>
+          </section>
       </div>
-        <section className="movie-info">
-          <div className="date-time">
-            <p className="release-date">{singleMovie.release_date}</p>
-            <p className="runtime">{singleMovie.runtime} minutes</p>
-          </div>
-          <p className="rating">Average Rating: {singleMovie.average_rating}</p>
-          <p className="genre">Genre(s): {singleMovie.genres}</p>
-          <p className="overview">{singleMovie.overview}</p>
-        </section>
     </div>
   )
 }

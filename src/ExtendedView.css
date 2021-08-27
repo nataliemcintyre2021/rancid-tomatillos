@@ -9,7 +9,6 @@
 }
 
 .movie-image {
-  border: 5px solid orange;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -37,14 +36,12 @@
   width: 30vw;
   color: white;
   font-size: 8vh;
-  border: 2px solid white;
   margin: 0;
+  font-weight: bold;
 }
 
 .release-date,
 .overview,
-.rating,
-.genre,
 .runtime {
   color: white;
   /* border: 2px solid white; */
@@ -52,8 +49,17 @@
   margin: 5px;
 }
 
+.genre {
+  border: 1px solid white;
+  font-size: 2vh;
+  margin: 5px;
+  color: white;
+  padding: .3vh;
+}
+
 .date-time {
   display: flex;
+  align-items: center;
 }
 
 button {
