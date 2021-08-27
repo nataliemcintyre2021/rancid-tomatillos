@@ -28,8 +28,8 @@ class Main extends React.Component {
       <main className='main-section'>
         <div className='all-movies-container'>
           <Posters title='All Movies' movieData={this.state.movieData} />
-          <Posters title='All Movies' movieData={this.state.movieData} />
-          <Posters title='All Movies' movieData={this.state.movieData} />
+          <Posters title='More Movies' movieData={this.state.movieData} />
+          <Posters title='Even More Movies' movieData={this.state.movieData} />
         </div>
         <List movieData={this.state.movieData}/>
       </main>

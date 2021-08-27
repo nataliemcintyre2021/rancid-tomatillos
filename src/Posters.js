@@ -8,8 +8,11 @@ function Posters(props) {
   ))
 
   return (
-    <div className="row-posters">
-      {movies}
+    <div className='row-container'>
+      <h2 className='row-title'>{props.title}</h2>
+      <div className="row-posters">
+        {movies}
+      </div>
     </div>
   )
 }
