@@ -8,11 +8,11 @@ function ExtendedView(props) {
   console.log(singleMovie)
 
   return(
-    <div className="extended-view hidden">
+    <div className="extended-view">
       <img
         className="expanded-movie"
-        key={props.singleMovieData.id}
-        src={props.singleMovieData.backdrop_path}
+        key={singleMovie.id}
+        src={singleMovie.backdrop_path}
       />
     </div>
   )

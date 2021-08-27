@@ -8,7 +8,7 @@ function Posters(props) {
   ))
 
   return (
-    <div className="row-posters">
+    <div className="row-posters hidden">
       {movies}
     </div>
   )
