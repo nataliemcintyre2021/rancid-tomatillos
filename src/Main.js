@@ -5,7 +5,6 @@ import List from './List'
 import movieData from './mockData'
 import './Main.css'
 
-// 👇 hide - show using state and re-rendering completely
 class Main extends React.Component {
   constructor() {
     super();
@@ -15,24 +14,24 @@ class Main extends React.Component {
     }
   }
 
-    render() {
-      return !this.state.isExtendedView ? (
-        <main className='main-section'>
-          <div className='all-movies-container'>
-            <Posters title='All Movies' movieData={this.state.movieData} />
-            <Posters title='All Movies' movieData={this.state.movieData} />
-            <Posters title='All Movies' movieData={this.state.movieData} />
-          </div>
-          <List movieData={this.state.movieData}/>
-        </main>
-      ) : (
-        <main className='main-section'>
-          <div className='single-movie-container hidden'>
-            <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
-          </div>
-        </main>
-      )
-    }
+  render() {
+    return !this.state.isExtendedView ? (
+      <main className='main-section'>
+        <div className='all-movies-container'>
+          <Posters title='All Movies' movieData={this.state.movieData} />
+          <Posters title='All Movies' movieData={this.state.movieData} />
+          <Posters title='All Movies' movieData={this.state.movieData} />
+        </div>
+        <List movieData={this.state.movieData}/>
+      </main>
+    ) : (
+      <main className='main-section'>
+        <div className='single-movie-container'>
+          <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
+        </div>
+      </main>
+    )
+  }
 }
 
 export default Main
