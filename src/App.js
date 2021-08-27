@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
+// import Banner from '.Banner'
 
 function App() {
   //console.log(movieData.movies[0], 'movieData<><><>')
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      
       <Main />
       <Footer />
     </div>
