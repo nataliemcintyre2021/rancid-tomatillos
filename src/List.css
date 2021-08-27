@@ -1,7 +1,28 @@
-.list-container {
+.list-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: black;
+  background-color: white;
+}
+
+.list {
   height: 500px;
   overflow-y: scroll;
   width: 600px;
-  background-color: white;
-  color: black;
+
+
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin-left: 20px;
+}
+
+.list-rating {
+  margin-right: 25px;
 }
