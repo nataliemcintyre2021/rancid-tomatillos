@@ -35,16 +35,3 @@ class Main extends React.Component {
 }
 
 export default Main
-// return (
-//   <main className='main-section'>
-//     <div className='all-movies-container'>
-//       <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
-//       <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
-//       <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
-//     </div>
-//     <List movieData={this.state.movieData}/>
-//     <div className='single-movie-container hidden'>
-//       <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
-//     </div>
-//   </main>
-// )
