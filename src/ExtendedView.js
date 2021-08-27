@@ -14,7 +14,7 @@ function ExtendedView(props) {
         key={singleMovie.id}
         src={singleMovie.backdrop_path}
       />
-      <button onClick={props.changeExtendedState}>BACK</button>
+      <button onClick={() => props.changeExtendedState()}>BACK</button>
     </div>
   )
 }

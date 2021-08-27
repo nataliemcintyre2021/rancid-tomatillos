@@ -10,16 +10,16 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: movieData.movies,
-      isExtendedView: true
+      isExtendedView: false
     }
   }
 
-  changeExtendedState() {
+  changeExtendedState = () => {
     if (this.state.isExtendedView) {
-      this.state.isExtendedView = false
+      this.setState({isExtendedView: false})
     }
     if (!this.state.isExtendedView) {
-      this.state.isExtendedView = true
+      this.setState({isExtendedView: true})
     }
   }
 
