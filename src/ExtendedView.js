@@ -9,23 +9,21 @@ function ExtendedView(props) {
 
   return(
     <div className="extended-view">
-    <div className="movie-image">
-      <img
-        className="expanded-movie"
-        key={singleMovie.id}
-        src={singleMovie.backdrop_path}
-      />
+    <button>BACK</button>
+      <div
+        className="movie-image"
+        style={{backgroundImage: `url(${singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh", backgroundColor: 'rgba(0, 0, 0, .5)'}}>
+        <p className="title">{singleMovie.title}</p>
       </div>
-      <section className="movie-info">
-          <p className="title">{singleMovie.title}</p>
-        <div className="date-time">
-          <p className="release-date">{singleMovie.release_date}</p>
-          <p className="runtime">{singleMovie.runtime} minutes</p>
-        </div>
-        <p className="rating">Average Rating: {singleMovie.average_rating}</p>
-        <p className="genre">Genre(s): {singleMovie.genres}</p>
-        <p className="overview">{singleMovie.overview}</p>
-      </section>
+        <section className="movie-info">
+          <div className="date-time">
+            <p className="release-date">{singleMovie.release_date}</p>
+            <p className="runtime">{singleMovie.runtime} minutes</p>
+          </div>
+          <p className="rating">Average Rating: {singleMovie.average_rating}</p>
+          <p className="genre">Genre(s): {singleMovie.genres}</p>
+          <p className="overview">{singleMovie.overview}</p>
+        </section>
     </div>
   )
 }
