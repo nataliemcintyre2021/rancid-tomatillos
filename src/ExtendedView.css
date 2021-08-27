@@ -1,34 +1,15 @@
-/* .hidden {
-  display: none;
-} */
-
-.extended-view {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
 .movie-image {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* height: 100%;
-  width: 100%; */
   padding-top: 5%;
-
 }
+
 .movie-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid white; */
-}
-.expanded-movie {
-  /* border: 5px solid purple; */
-  height: 50%;
-  width: 70%;
-  padding-top: 5%;
 }
 
 .title {
@@ -45,7 +26,6 @@
 .runtime,
 .tagline {
   color: white;
-  /* border: 2px solid white; */
   font-size: 2vh;
   margin: 5px;
 }
