@@ -14,6 +14,7 @@ function ExtendedView(props) {
         key={singleMovie.id}
         src={singleMovie.backdrop_path}
       />
+      <button>BACK</button>
     </div>
   )
 }
