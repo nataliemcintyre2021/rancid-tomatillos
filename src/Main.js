@@ -13,12 +13,11 @@ class Main extends React.Component {
   }
 
   hidePostersView(event) {
-    if (event.target.classList.includes('hidden')) {
-      event.target.classList.remove('hidden')
-    }
+    // if (event.target.parentElement.parentNode.classList.includes('hidden')) {
+      event.target.parentElement.parentNode.classList.add('hidden')
+
   }
 
-  back
 
 //first function: hideShow() - this will toggle the hidden class
 
@@ -36,10 +35,10 @@ class Main extends React.Component {
       return (
         <main className='main-section'>
           <div className='all-movies-container'>
-            <Posters title='All Movies' movieData={this.state.movieData} />
+            <Posters title='All Movies' movieData={this.state.movieData} hidePostersView={this.hidePostersView} />
           </div>
           <div className='single-movie-container hidden'>
-            <ExtendedView singleMovieData={this.state.movieData} id={'337401'}/>
+            <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
           </div>
         </main>
       )
