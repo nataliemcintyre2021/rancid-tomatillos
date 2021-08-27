@@ -1,7 +1,7 @@
 .App {
-  height: 100vh;
-  display: block;
-  border: 2px solid green;
+  /* display: block; */
+  border: 12px dotted green;
+  color: white;
   /* display: flex;
   flex-direction: column; */
 }

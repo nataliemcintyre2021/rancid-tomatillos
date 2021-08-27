@@ -60,6 +60,8 @@ class Main extends React.Component {
         <main className='main-section'>
           <div className='all-movies-container'>
             <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
+            <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
+            <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
           </div>
           <div className='single-movie-container hidden'>
             <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
