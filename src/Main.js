@@ -2,6 +2,7 @@ import React from 'react'
 import Posters from './Posters'
 import ExtendedView from './ExtendedView'
 import movieData from './mockData'
+import './Main.css'
 
 class Main extends React.Component {
   constructor() {
@@ -10,6 +11,15 @@ class Main extends React.Component {
       movieData: movieData.movies
     }
   }
+
+  hidePostersView(event) {
+    if (event.target.classList.includes('hidden')) {
+      event.target.classList.remove('hidden')
+    }
+  }
+
+  back
+
 //first function: hideShow() - this will toggle the hidden class
 
 //second function: showExtendedMovieView() -
@@ -25,8 +35,12 @@ class Main extends React.Component {
     render() {
       return (
         <main className='main-section'>
-          <Posters title='All Movies' movieData={this.state.movieData} />
-          <ExtendedView singleMovieData={this.state.movieData} id={'337401'}/>
+          <div className='all-movies-container'>
+            <Posters title='All Movies' movieData={this.state.movieData} />
+          </div>
+          <div className='single-movie-container hidden'>
+            <ExtendedView singleMovieData={this.state.movieData} id={'337401'}/>
+          </div>
         </main>
       )
     }
