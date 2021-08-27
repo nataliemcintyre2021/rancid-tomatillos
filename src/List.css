@@ -1,0 +1,26 @@
+.list-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.list {
+  width: 650px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin-left: 20px;
+}
+
+.list-rating {
+  margin-right: 25px;
+}

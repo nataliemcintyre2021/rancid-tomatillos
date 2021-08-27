@@ -1,8 +1,13 @@
 .row-posters {
-  display: flex;
+  margin-top: 80px;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%;
+  width: 100%; */
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px; 
 }
 
 .single-poster {

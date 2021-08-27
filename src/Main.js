@@ -1,26 +1,29 @@
 import React from 'react'
 import Posters from './Posters'
 import ExtendedView from './ExtendedView'
+import List from './List'
 import movieData from './mockData'
 import './Main.css'
 
+// 👇 hide - show using state and re-rendering completely
 class Main extends React.Component {
   constructor() {
     super();
     this.state = {
       movieData: movieData.movies,
-      classes: true;
+      //classes: true
     }
   }
 
-  hidePostersView(event) {
 
-      this.setState({ classes: })
-      event.target.parentElement.parentNode.classList.add('hidden')
-      //show specific ExtendedView
-
-
-  }
+  // hidePostersView(event) {
+  //
+  //     this.setState({ classes: })
+  //     event.target.parentElement.parentNode.classList.add('hidden')
+  //     //show specific ExtendedView
+  //
+  //
+  // }
 
   // render() {
   //       if(this.state.classes) {
@@ -57,8 +60,11 @@ class Main extends React.Component {
       return (
         <main className='main-section'>
           <div className='all-movies-container'>
-            <Posters title='All Movies' movieData={this.state.movieData} hidePostersView={this.hidePostersView} />
+            <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
+            <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
+            <Posters title='All Movies' movieData={this.state.movieData} /* hidePostersView={this.hidePostersView} */ />
           </div>
+          <List movieData={this.state.movieData}/>
           <div className='single-movie-container hidden'>
             <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
           </div>

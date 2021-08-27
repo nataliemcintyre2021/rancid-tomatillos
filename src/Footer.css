@@ -1,5 +1,8 @@
 .footer {
-  height: 25%;
-  /* width: 100%; */
+  height: 100px;
+  width: 100%;
   border: 4px solid black;
+  /* position: fixed;
+  bottom: 0; */
+  background-color: lightcoral;
 }
