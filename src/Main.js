@@ -15,24 +15,27 @@ class Main extends React.Component {
     }
   }
 
-  changeExtendedState = () => {
+  changeExtendedState = (id) => {
+    this.handlePosterClick(id)
+
     if (this.state.isExtendedView) {
       this.setState({isExtendedView: false})
     }
     if (!this.state.isExtendedView) {
       this.setState({isExtendedView: true})
     }
+
   }
 
-  handlePosterClick = (event) => {
-    this.setState({clickedPosterID: event.target.id})
+  handlePosterClick = (id) => {
+    this.setState({clickedPosterID: id})
   }
 
   render() {
     return !this.state.isExtendedView ? (
       <main className='main-section'>
         <div className='all-movies-container'>
-          <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} onClick={event => this.handlePosterClick(event)} />
+          <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
           <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
           <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
         </div>
@@ -43,7 +46,7 @@ class Main extends React.Component {
         <div className='single-movie-container'>
           <ExtendedView
             singleMovieData={this.state.movieData}
-            id='726739'
+            id={this.state.clickedPosterID}
             changeExtendedState={this.changeExtendedState}
             />
         </div>

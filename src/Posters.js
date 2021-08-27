@@ -3,7 +3,7 @@ import './Posters.css'
 
 function Posters(props) {
   const movies = props.movieData.map(movie => (
-    <img className="single-poster" key={movie.id} onClick={() => props.changeExtendedState()} src={movie.poster_path} alt={movie.title}
+    <img className="single-poster" key={movie.id} onClick={() => props.changeExtendedState(movie.id)} src={movie.poster_path} alt={movie.title}
     />
     )
   )
