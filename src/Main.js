@@ -14,6 +14,15 @@ class Main extends React.Component {
     }
   }
 
+  changeExtendedState() {
+    if (this.state.isExtendedView) {
+      this.state.isExtendedView = false
+    }
+    if (!this.state.isExtendedView) {
+      this.state.isExtendedView = true
+    }
+  }
+
   render() {
     return !this.state.isExtendedView ? (
       <main className='main-section'>
@@ -27,7 +36,11 @@ class Main extends React.Component {
     ) : (
       <main className='main-section'>
         <div className='single-movie-container'>
-          <ExtendedView singleMovieData={this.state.movieData} id={'337401'} />
+          <ExtendedView
+            singleMovieData={this.state.movieData}
+            id={'337401'}
+            changeExtendedState={this.changeExtendedState}
+            />
         </div>
       </main>
     )
