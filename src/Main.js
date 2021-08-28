@@ -9,10 +9,26 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      movieData: movieData.movies,
+      movieData: null,
       isExtendedView: false,
-      clickedPosterID: null
+      clickedPosterID: null,
+      loading: false
     }
+  }
+
+  componentDidMount() {
+    console.log("did mount")
+    this.setState({loading: true})
+    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+      fetch(url)
+       .then(response => response.json())
+       .then(data => {
+         this.setState({
+           loading: false,
+           movieData: data.movies
+         })
+       })
+       .catch(error => console.log("error"))
   }
 
   changeExtendedState = (id) => {
@@ -32,26 +48,33 @@ class Main extends React.Component {
   }
 
   render() {
-    return !this.state.isExtendedView ? (
-      <main className='main-section'>
-        <div className='all-movies-container'>
-          <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-          <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-          <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-        </div>
-        <List movieData={this.state.movieData}/>
-      </main>
-    ) : (
-      <main className='main-section'>
-        <div className='single-movie-container'>
-          <ExtendedView
-            singleMovieData={this.state.movieData}
-            id={this.state.clickedPosterID}
-            changeExtendedState={this.changeExtendedState}
-            />
-        </div>
-      </main>
-    )
+    if (this.state.loading) {
+      return (
+        <p>'Loading...'</p>
+      )
+    }
+    if (!this.state.loading) {
+      return !this.state.isExtendedView ? (
+        <main className='main-section'>
+          <div className='all-movies-container'>
+            <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+            <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+            <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+          </div>
+          <List movieData={this.state.movieData}/>
+        </main>
+      ) : (
+        <main className='main-section'>
+          <div className='single-movie-container'>
+            <ExtendedView
+              singleMovieData={this.state.movieData}
+              id={this.state.clickedPosterID}
+              changeExtendedState={this.changeExtendedState}
+              />
+          </div>
+        </main>
+      )
+    }
   }
 }
 
