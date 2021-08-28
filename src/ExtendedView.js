@@ -6,8 +6,7 @@ function ExtendedView(props) {
 
   return(
     <div className="extended-page">
-      <button className="back">BACK</button>
-      <div className="extended-view">
+      <button className="back" onClick={() => props.changeExtendedState()}>BACK</button>
         <div className="movie-poster">
           <div
             className="movie-image"
@@ -26,7 +25,6 @@ function ExtendedView(props) {
             <p className="overview">{singleMovie.overview}</p>
           </section>
       </div>
-    </div>
   )
 }
 
