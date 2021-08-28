@@ -14,11 +14,11 @@
 
 .title {
   height: 12vh;
-  width: 30vw;
   color: white;
   font-size: 8vh;
   margin: 0;
   font-weight: bold;
+  position: absolute;
 }
 
 .release-date,
