@@ -26,6 +26,12 @@
    margin: 10px;
  }
 
+ /* .row-container::-webkit-scrollbar {
+  /* this is sayng; hey all browsers, don't display the scroll bar,
+  but keeps it's functionality there */
+  /* display: none; */
+
+
  /* .hidden {
    display: none;
  } */
