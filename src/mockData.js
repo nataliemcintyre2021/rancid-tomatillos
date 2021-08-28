@@ -12,7 +12,7 @@ const movieData = {
       budget:63000000,
       revenue:100853753,
       runtime:139,
-      tagline: "It's a movie!" 
+      tagline: "It's a movie!"
     },
     {
       "id": 694919,

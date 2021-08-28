@@ -6,13 +6,14 @@ function ExtendedView(props) {
 
   return(
     <div className="extended-page">
-      <button>BACK</button>
+      <button className="back">BACK</button>
       <div className="extended-view">
         <div className="movie-poster">
           <div
             className="movie-image"
             style={{backgroundImage: `url(${singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}>
             <p className="title">{singleMovie.title}</p>
+            <button className="rating">Rating: {((singleMovie.average_rating/10)*100).toFixed(0)}%</button>
           </div>
         </div>
           <section className="movie-info">
