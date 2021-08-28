@@ -9,7 +9,7 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      movieData: null,
+      movieData: [],
       isExtendedView: false,
       clickedPosterID: null,
       loading: false
@@ -19,8 +19,8 @@ class Main extends React.Component {
   componentDidMount() {
     console.log("did mount")
     this.setState({loading: true})
-    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
-      fetch(url)
+    // const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+      fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
        .then(response => response.json())
        .then(data => {
          this.setState({
@@ -48,12 +48,17 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log("render")
     if (this.state.loading) {
+      console.log("movie data", this.state.movieData)
+      console.log("loading status", this.state.loading)
       return (
         <p>'Loading...'</p>
       )
     }
     if (!this.state.loading) {
+      console.log("movie data", this.state.movieData)
+      console.log("loading status", this.state.loading)
       return !this.state.isExtendedView ? (
         <main className='main-section'>
           <div className='all-movies-container'>
