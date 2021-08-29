@@ -4,30 +4,31 @@ import ExtendedView from './ExtendedView'
 import List from './List'
 import movieData from './mockData'
 import './Main.css'
+import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
 
 class Main extends React.Component {
   constructor() {
     super();
     this.state = {
       movieData: [],
+      singleMovie: [],
       isExtendedView: false,
       clickedPosterID: null,
-      loading: false
+      loading: false,
+      error: ''
     }
   }
 
   componentDidMount() {
     console.log("did mount")
     this.setState({loading: true})
-    // const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
-      fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-       .then(response => response.json())
-       .then(data => {
-         this.setState({
-           loading: false,
-           movieData: data.movies
-         })
-       })
+    getAllMovies()
+    .then(data => {
+      this.setState({
+        loading: false,
+        movieData: data.movies
+      })
+    })
        .catch(error => console.log("error"))
   }
 
@@ -39,12 +40,23 @@ class Main extends React.Component {
     }
     if (!this.state.isExtendedView) {
       this.setState({isExtendedView: true})
+      this.getSingleMoviePoster(id)
     }
 
   }
 
   handlePosterClick = (id) => {
     this.setState({clickedPosterID: id})
+  }
+
+  getSingleMoviePoster = (id) => {
+    fetchSingleMoviePoster(id)
+     .then(data => {
+       this.setState({
+         singleMovie: data.movie
+       })
+     })
+     .catch(error => console.log("error"))
   }
 
   render() {
@@ -72,9 +84,10 @@ class Main extends React.Component {
         <main className='main-section'>
           <div className='single-movie-container'>
             <ExtendedView
-              singleMovieData={this.state.movieData}
+              singleMovie={this.state.singleMovie}
               id={this.state.clickedPosterID}
               changeExtendedState={this.changeExtendedState}
+              getSingleMoviePoster={this.getSingleMoviePoster}
               />
           </div>
         </main>
