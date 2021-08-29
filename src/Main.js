@@ -4,6 +4,7 @@ import ExtendedView from './ExtendedView'
 import List from './List'
 import movieData from './mockData'
 import './Main.css'
+import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
 
 class Main extends React.Component {
   constructor() {
@@ -20,20 +21,14 @@ class Main extends React.Component {
   componentDidMount() {
     console.log("did mount")
     this.setState({loading: true})
-    // const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
-      fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-       .then(response => response.json())
-       .then(data => {
-         this.setState({
-           loading: false,
-           movieData: data.movies
-         })
-       })
+    getAllMovies()
+    .then(data => {
+      this.setState({
+        loading: false,
+        movieData: data.movies
+      })
+    })
        .catch(error => console.log("error"))
-  }
-
-  componentDidUpdate() {
-    console.log("Did Update")
   }
 
   changeExtendedState = (id) => {
@@ -51,13 +46,10 @@ class Main extends React.Component {
 
   handlePosterClick = (id) => {
     this.setState({clickedPosterID: id})
-    console.log("HANDLECLICK=>>clickedPosterID", id)
   }
 
   getSingleMoviePoster = (id) => {
-  console.log("clickedPosterID", id)
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-     .then(response => response.json())
+    fetchSingleMoviePoster(id)
      .then(data => {
        this.setState({
          singleMovie: data.movie
