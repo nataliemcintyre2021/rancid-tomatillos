@@ -2,7 +2,6 @@ import React from 'react'
 import Posters from './Posters'
 import ExtendedView from './ExtendedView'
 import List from './List'
-import movieData from './mockData'
 import './Main.css'
 import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
 
