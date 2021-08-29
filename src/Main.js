@@ -14,7 +14,8 @@ class Main extends React.Component {
       singleMovie: [],
       isExtendedView: false,
       clickedPosterID: null,
-      loading: false
+      loading: false,
+      error: ''
     }
   }
 
