@@ -1,8 +1,7 @@
 import './ExtendedView.css'
 
 function ExtendedView(props) {
-  const singleMovie = props.singleMovieData.find(movie => movie.id === parseInt(props.id))
-  console.log(singleMovie)
+
 
   return(
     <div className="extended-page">
@@ -10,19 +9,19 @@ function ExtendedView(props) {
         <div className="movie-poster">
           <div
             className="movie-image"
-            style={{backgroundImage: `url(${singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}>
-            <p className="title">{singleMovie.title}</p>
-            <button className="rating">Rating: {((singleMovie.average_rating/10)*100).toFixed(0)}%</button>
+            style={{backgroundImage: `url(${props.singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}>
+            <p className="title">{props.singleMovie.title}</p>
+            <button className="rating">Rating: {((props.singleMovie.average_rating/10)*100).toFixed(0)}%</button>
           </div>
         </div>
           <section className="movie-info">
             <div className="date-time">
-              <p className="release-date">{singleMovie.release_date.split("").slice(0, 4).join("")}</p>
-              <p className="genre">{singleMovie.genres}</p>
-              <p className="runtime">{singleMovie.runtime} minutes</p>
+              <p className="release-date">{props.singleMovie.release_date}</p>
+              <p className="genre">{props.singleMovie.genres}</p>
+              <p className="runtime">{props.singleMovie.runtime} minutes</p>
             </div>
-            <p className="tagline">{singleMovie.tagline}</p>
-            <p className="overview">{singleMovie.overview}</p>
+            <p className="tagline">{props.singleMovie.tagline}</p>
+            <p className="overview">{props.singleMovie.overview}</p>
           </section>
       </div>
   )
