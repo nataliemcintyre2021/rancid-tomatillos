@@ -31,6 +31,19 @@ class Main extends React.Component {
        .catch(error => console.log("error"))
   }
 
+  componentDidUpdate() {
+    console.log("Did Update")
+  }
+
+  getSingleMoviePoster = () => {
+  // const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+  console.log("clickedPosterID", this.state.clickedPosterID)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.clickedPosterID}`)
+     .then(response => response.json())
+     .then(data => console.log("DATA", data.movie))
+     .catch(error => console.log("error"))
+  }
+
   changeExtendedState = (id) => {
     this.handlePosterClick(id)
 
@@ -39,6 +52,7 @@ class Main extends React.Component {
     }
     if (!this.state.isExtendedView) {
       this.setState({isExtendedView: true})
+      this.getSingleMoviePoster()
     }
 
   }
@@ -75,6 +89,7 @@ class Main extends React.Component {
               singleMovieData={this.state.movieData}
               id={this.state.clickedPosterID}
               changeExtendedState={this.changeExtendedState}
+              getSingleMoviePoster={this.getSingleMoviePoster}
               />
           </div>
         </main>
