@@ -29,7 +29,7 @@ class Main extends React.Component {
         movieData: data.movies
       })
     })
-       .catch(error => console.log("error"))
+    .catch(error => this.setState({error: error}))
   }
 
   changeExtendedState = (id) => {
@@ -56,7 +56,7 @@ class Main extends React.Component {
          singleMovie: data.movie
        })
      })
-     .catch(error => console.log("error"))
+     .catch(error => this.setState({error: error}))
   }
 
   render() {
