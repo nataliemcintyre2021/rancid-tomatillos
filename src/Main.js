@@ -67,13 +67,11 @@ class Main extends React.Component {
         <Error errorMessage={this.state.error.message}/>
       )
     }
-
     if (this.state.loading) {
       return (
         <p>'Loading...'</p>
       )
     }
-
     if (!this.state.loading && !this.state.error) {
       return !this.state.isExtendedView ? (
         <main className='main-section'>
