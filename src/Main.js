@@ -28,7 +28,7 @@ class Main extends React.Component {
         movieData: data.movies
       })
     })
-    .catch(error => this.setState({error: error}))
+    .catch(error => this.setState({error: error.message}))
   }
 
   changeExtendedState = (id) => {
@@ -61,15 +61,19 @@ class Main extends React.Component {
   render() {
     console.log("render")
     if (this.state.loading) {
-      console.log("movie data", this.state.movieData)
-      console.log("loading status", this.state.loading)
       return (
         <p>'Loading...'</p>
       )
     }
-    if (!this.state.loading) {
-      console.log("movie data", this.state.movieData)
-      console.log("loading status", this.state.loading)
+    if(this.state.error) {
+      return (
+        <Error errorMessage={this.state.error}/>
+      )
+    }
+
+
+
+    if (!this.state.loading && !this.state.error) {
       return !this.state.isExtendedView ? (
         <main className='main-section'>
           <div className='all-movies-container'>
