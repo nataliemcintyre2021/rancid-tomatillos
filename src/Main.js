@@ -2,8 +2,10 @@ import React from 'react'
 import Posters from './Posters'
 import ExtendedView from './ExtendedView'
 import List from './List'
+import Error from './Error'
 import './Main.css'
 import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
+
 
 class Main extends React.Component {
   constructor() {
@@ -70,9 +72,6 @@ class Main extends React.Component {
         <Error errorMessage={this.state.error}/>
       )
     }
-
-
-
     if (!this.state.loading && !this.state.error) {
       return !this.state.isExtendedView ? (
         <main className='main-section'>
