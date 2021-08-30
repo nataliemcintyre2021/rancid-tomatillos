@@ -2,9 +2,10 @@ import React from 'react'
 import Posters from './Posters'
 import ExtendedView from './ExtendedView'
 import List from './List'
-import movieData from './mockData'
+import Error from './Error'
 import './Main.css'
 import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
+
 
 class Main extends React.Component {
   constructor() {
@@ -29,7 +30,7 @@ class Main extends React.Component {
         movieData: data.movies
       })
     })
-       .catch(error => console.log("error"))
+    .catch(error => this.setState({error: error.message}))
   }
 
   changeExtendedState = (id) => {
@@ -56,21 +57,22 @@ class Main extends React.Component {
          singleMovie: data.movie
        })
      })
-     .catch(error => console.log("error"))
+     .catch(error => this.setState({error: error}))
   }
 
   render() {
     console.log("render")
+    if(this.state.error) {
+      return (
+        <Error errorMessage={this.state.error.message}/>
+      )
+    }
     if (this.state.loading) {
-      console.log("movie data", this.state.movieData)
-      console.log("loading status", this.state.loading)
       return (
         <p>'Loading...'</p>
       )
     }
-    if (!this.state.loading) {
-      console.log("movie data", this.state.movieData)
-      console.log("loading status", this.state.loading)
+    if (!this.state.loading && !this.state.error) {
       return !this.state.isExtendedView ? (
         <main className='main-section'>
           <div className='all-movies-container'>
