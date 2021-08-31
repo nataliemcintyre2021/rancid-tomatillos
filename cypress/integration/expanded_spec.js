@@ -49,7 +49,7 @@ describe('Expanded single movie poster view flow', () => {
   //     .contains()
   // })
 
-  it('Should be able to see runtime of expanded movie', () => {
+  it('Should be able to see overview of expanded movie', () => {
     cy.get(".single-poster").first().click()
     cy.get(".overview")
       .contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
