@@ -11,7 +11,7 @@ function ExtendedView(props) {
             className="movie-image"
             style={{backgroundImage: `url(${props.singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}>
             <p className="title">{props.singleMovie.title}</p>
-            <button className="rating">Rating: {((props.singleMovie.average_rating/10)*100).toFixed(0)}%</button>
+            <button className="rating">Rating: {props.singleMovie.average_rating}</button>
           </div>
         </div>
           <section className="movie-info">
