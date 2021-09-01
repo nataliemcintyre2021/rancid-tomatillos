@@ -1,5 +1,7 @@
 beforeEach(() => {
-  cy.visit('http://localhost:3000/dashboard');
+  cy.visit('http://localhost:3000/dashboard')
+  // cy.fixture('../fixtures/singleMovies.json')
+  // cy.intercept("GET", 'http://localhost:3000/dashboard', {fixture: })
 });
 
 describe('Expanded single movie poster view flow', () => {
@@ -16,11 +18,24 @@ describe('Expanded single movie poster view flow', () => {
   //do intercept and stub here and check to see if new movie loaded and new URL from router
 })
 
+  // it('Should be able to see title of expanded movie', () => {
+  //   cy.get(".single-poster").first().click()
+  //   cy.get(".title")
+  //     .contains('Money Plane')
+  // })
   it('Should be able to see title of expanded movie', () => {
+    cy.fixture('../fixtures/singleMovies.json').then((data) => {
+      const title = data.singleMovies[0].title
+      cy.intercept('GET', 'http://localhost:3000/dashboard', {
+        statusCode: 200,
+        body: title
+      })
+    })
     cy.get(".single-poster").first().click()
     cy.get(".title")
       .contains('Money Plane')
   })
+
 
   // it('Should be able to see rating of expanded movie', () => {
   //   cy.get(".rating")
