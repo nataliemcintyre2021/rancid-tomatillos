@@ -5,17 +5,19 @@ beforeEach(() => {
 });
 
 describe('Expanded single movie poster view flow', () => {
-  it('Should be able to click on movie poster and see expanded view of single movie', () => {
+  it('Should be able to click on movie poster and see expanded view of single movie poster', () => {
+    cy.fixture('../fixtures/singleMovies.json').then((data) => {
+      const title = data.singleMovies[0].title
+      cy.intercept('GET', 'http://localhost:3000/dashboard', {
+        statusCode: 200,
+        body: title
+      })
+    })
     cy.get(".single-poster").first().click()
-    // cy.intercept({
-    //   method: 'GET',
-    //   url: '',
-    // })
     cy.get(".movie-image")
       .should('have.attr', 'style')
       .and('equal', 'background-image: url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg"); background-size: cover; height: 75vh;')
-  //   cy.intercept()
-  //do intercept and stub here and check to see if new movie loaded and new URL from router
+
 })
 
   // it('Should be able to see title of expanded movie', () => {
