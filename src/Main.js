@@ -99,9 +99,8 @@ class Main extends React.Component {
                   <div className='single-movie-container'>
                     <ExtendedView
                       singleMovie={this.state.singleMovie}
-                      id={this.state.clickedPosterID}
+                      id={parseInt(params.id)}
                       changeExtendedState={this.changeExtendedState}
-                      getSingleMoviePoster={this.getSingleMoviePoster}
                     />
                   </div>
                 </main>
