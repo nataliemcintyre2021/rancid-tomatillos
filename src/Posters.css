@@ -1,4 +1,4 @@
-.row-container {
+.posters-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9,14 +9,8 @@
   overflow-x: scroll;
 }
 
-.row-posters {
-  /* margin-top: 80px; */
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%; */
+.row-of-posters {
   display: flex;
-
   padding: 20px;
 }
 
@@ -30,8 +24,3 @@
   /* this is sayng; hey all browsers, don't display the scroll bar,
   but keeps it's functionality there */
   /* display: none; */
-
-
- /* .hidden {
-   display: none;
- } */

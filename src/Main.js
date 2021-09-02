@@ -4,7 +4,7 @@ import ExtendedView from './ExtendedView'
 import List from './List'
 import Error from './Error'
 import './Main.css'
-import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
+import {getAllMovies} from './apiCalls'
 import { Route } from 'react-router-dom';
 
 
@@ -13,8 +13,7 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
-      singleMovie: [],
-      isExtendedView: false,
+      singleMovie: {},
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -22,7 +21,6 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    console.log("did mount")
     this.setState({loading: true})
     getAllMovies()
     .then(data => {
@@ -34,35 +32,11 @@ class Main extends React.Component {
     .catch(error => this.setState({error: error.message}))
   }
 
-  changeExtendedState = (id) => {
-    this.handlePosterClick(id)
-
-    if (this.state.isExtendedView) {
-      this.setState({isExtendedView: false})
-    }
-    if (!this.state.isExtendedView) {
-      this.setState({isExtendedView: true})
-      this.getSingleMoviePoster(id)
-    }
-
-  }
-
   handlePosterClick = (id) => {
     this.setState({clickedPosterID: id})
   }
 
-  getSingleMoviePoster = (id) => {
-    fetchSingleMoviePoster(id)
-     .then(data => {
-       this.setState({
-         singleMovie: data.movie
-       })
-     })
-     .catch(error => this.setState({error: error}))
-  }
-
   render() {
-    console.log("render")
     if(this.state.error) {
       return (
         <Error errorMessage={this.state.error.message}/>
@@ -75,37 +49,31 @@ class Main extends React.Component {
     }
     if (!this.state.loading && !this.state.error) {
       return (
-        <div>
-          <Route exact path="/" render={({ match }) => {
-
+        <>
+          <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
-                <div className='all-movies-container'>
-                  <div>
-                    <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-                    <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-                    <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-                  </div>
-                </div>
-                <List movieData={this.state.movieData}/>
+                <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
+                <List movieData={this.state.movieData} key={Date.now()}/>
               </main> )
-          }
+            }
           }/>
 
-            <Route exact path="/:id" render={({ match }) => {
-              return (
-                <main className='main-section'>
-                  <div className='single-movie-container'>
-                  <ExtendedView singleMovie={this.state.singleMovie}
-                  id={this.state.clickedPosterID || match.params.id}
-                  changeExtendedState={this.changeExtendedState}
-                  getSingleMoviePoster={this.getSingleMoviePoster}/>
-                  </div>
-                </main>
+          <Route exact path="/:id" render={({ match }) => {
+            const { params } = match
+            return (
+              <main className='main-section'>
+                  <ExtendedView
+                    singleMovie={this.state.singleMovie}
+                    id={parseInt(params.id)}
+                    changeExtendedState={this.changeExtendedState}
+                    key={parseInt(params.id)}
+                  />
+              </main>
             )
-            }
-            }/>
-            </div>
+          }
+          }/>
+        </>
       )
     }
   }
