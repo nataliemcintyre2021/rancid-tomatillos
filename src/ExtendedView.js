@@ -16,7 +16,7 @@ function ExtendedView(props) {
         </div>
           <section className="movie-info">
             <div className="date-time">
-              <p className="release-date">{props.singleMovie.release_date}</p>
+              <p className="release-date">{(props.singleMovie.release_date)}</p>
               <p className="genre">{props.singleMovie.genres}</p>
               <p className="runtime">{props.singleMovie.runtime} minutes</p>
             </div>

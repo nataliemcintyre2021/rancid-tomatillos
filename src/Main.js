@@ -5,6 +5,7 @@ import List from './List'
 import Error from './Error'
 import './Main.css'
 import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
+import { Route } from 'react-router-dom';
 
 
 class Main extends React.Component {
@@ -73,26 +74,38 @@ class Main extends React.Component {
       )
     }
     if (!this.state.loading && !this.state.error) {
-      return !this.state.isExtendedView ? (
-        <main className='main-section'>
-          <div className='all-movies-container'>
-            <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-            <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-            <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-          </div>
-          <List movieData={this.state.movieData}/>
-        </main>
-      ) : (
-        <main className='main-section'>
-          <div className='single-movie-container'>
-            <ExtendedView
-              singleMovie={this.state.singleMovie}
-              id={this.state.clickedPosterID}
-              changeExtendedState={this.changeExtendedState}
-              getSingleMoviePoster={this.getSingleMoviePoster}
-              />
-          </div>
-        </main>
+      return (
+        <div>
+          <Route exact path="/" render={({ match }) => {
+
+            return (
+              <main className='main-section'>
+                <div className='all-movies-container'>
+                  <div>
+                    <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+                    <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+                    <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+                  </div>
+                </div>
+                <List movieData={this.state.movieData}/>
+              </main> )
+          }
+          }/>
+
+            <Route exact path="/:id" render={({ match }) => {
+              return (
+                <main className='main-section'>
+                  <div className='single-movie-container'>
+                  <ExtendedView singleMovie={this.state.singleMovie}
+                  id={this.state.clickedPosterID || match.params.id}
+                  changeExtendedState={this.changeExtendedState}
+                  getSingleMoviePoster={this.getSingleMoviePoster}/>
+                  </div>
+                </main>
+            )
+            }
+            }/>
+            </div>
       )
     }
   }

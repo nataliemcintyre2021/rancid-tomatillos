@@ -3,6 +3,9 @@ import './App.css';
 import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
+import { Route } from 'react-router-dom';
+import ExtendedView from './ExtendedView'
+import { Link } from 'react-router-dom';
 // import Banner from '.Banner'
 
 function App() {
@@ -10,10 +13,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-
-      <Main />
-      <Footer />
+      <Route to="/">
+        <Header />
+        <Main />
+        <Footer />
+      </Route>
     </div>
   );
 }
