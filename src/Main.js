@@ -83,13 +83,11 @@ class Main extends React.Component {
                 <div className='all-movies-container'>
                   <div>
                     <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-                    <Posters title='More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-                    <Posters title='Even More Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
                   </div>
                 </div>
                 <List movieData={this.state.movieData}/>
               </main> )
-          }
+            }
           }/>
 
             <Route exact path="/:id" render={({ match }) => {
@@ -102,10 +100,10 @@ class Main extends React.Component {
                   getSingleMoviePoster={this.getSingleMoviePoster}/>
                   </div>
                 </main>
-            )
+              )
             }
-            }/>
-            </div>
+          }/>
+        </div>
       )
     }
   }
