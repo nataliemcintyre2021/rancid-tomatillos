@@ -4,7 +4,7 @@ import ExtendedView from './ExtendedView'
 import List from './List'
 import Error from './Error'
 import './Main.css'
-import {getAllMovies, fetchSingleMoviePoster} from './apiCalls'
+import {getAllMovies} from './apiCalls'
 import { Route } from 'react-router-dom';
 
 
@@ -21,7 +21,6 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    console.log("did mount")
     this.setState({loading: true})
     getAllMovies()
     .then(data => {
@@ -34,7 +33,6 @@ class Main extends React.Component {
   }
 
   handlePosterClick = (id) => {
-    console.log('is this working??? 1')
     this.setState({clickedPosterID: id})
   }
 
@@ -56,9 +54,9 @@ class Main extends React.Component {
             return (
               <main className='main-section'>
                 <div className='all-movies-container'>
-                    <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
+                    <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
                 </div>
-                <List movieData={this.state.movieData}/>
+                <List movieData={this.state.movieData} key={Date.now()}/>
               </main> )
             }
           }/>
@@ -71,6 +69,7 @@ class Main extends React.Component {
                     singleMovie={this.state.singleMovie}
                     id={parseInt(params.id)}
                     changeExtendedState={this.changeExtendedState}
+                    key={parseInt(params.id)}
                   />
               </main>
             )

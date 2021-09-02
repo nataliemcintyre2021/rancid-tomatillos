@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <App key={(Date.now() + 10)}/>
   </BrowserRouter>,
   document.getElementById('root')
 );
