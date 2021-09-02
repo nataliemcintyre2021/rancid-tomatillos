@@ -4,8 +4,8 @@ import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
 import { Route } from 'react-router-dom';
-import ExtendedView from './ExtendedView'
-import { Link } from 'react-router-dom';
+// import ExtendedView from './ExtendedView'
+// import { Link } from 'react-router-dom';
 // import Banner from '.Banner'
 
 function App() {
