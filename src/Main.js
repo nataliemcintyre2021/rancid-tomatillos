@@ -14,7 +14,6 @@ class Main extends React.Component {
     this.state = {
       movieData: [],
       singleMovie: {},
-      isExtendedView: false, // may be removing this in future
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -34,26 +33,12 @@ class Main extends React.Component {
     .catch(error => this.setState({error: error.message}))
   }
 
-  changeExtendedState = (id) => { // may be removing in future
-    this.handlePosterClick(id)
-
-    if (this.state.isExtendedView) {
-      this.setState({isExtendedView: false})
-    }
-    if (!this.state.isExtendedView) {
-      this.setState({isExtendedView: true})
-      // this.getSingleMoviePoster(id)
-    }
-
-  }
-
   handlePosterClick = (id) => {
     console.log('is this working??? 1')
     this.setState({clickedPosterID: id})
   }
 
   render() {
-    // console.log("render")
     if(this.state.error) {
       return (
         <Error errorMessage={this.state.error.message}/>
@@ -80,21 +65,20 @@ class Main extends React.Component {
             }
           }/>
 
-            <Route exact path="/:id" render={({ match }) => {
-              const { params } = match
-              console.log(params, '<><>')
-              return (
-                <main className='main-section'>
-                  <div className='single-movie-container'>
-                    <ExtendedView
-                      singleMovie={this.state.singleMovie}
-                      id={parseInt(params.id)}
-                      changeExtendedState={this.changeExtendedState}
-                    />
-                  </div>
-                </main>
-              )
-            }
+          <Route exact path="/:id" render={({ match }) => {
+            const { params } = match
+            return (
+              <main className='main-section'>
+                <div className='single-movie-container'>
+                  <ExtendedView
+                    singleMovie={this.state.singleMovie}
+                    id={parseInt(params.id)}
+                    changeExtendedState={this.changeExtendedState}
+                  />
+                </div>
+              </main>
+            )
+          }
           }/>
         </div>
       )
