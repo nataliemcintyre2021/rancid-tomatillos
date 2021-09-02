@@ -30,7 +30,7 @@ class ExtendedView extends React.Component {
               style={{backgroundImage: `url(${this.state.singleMovieData.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}
             >
               <p className="title">{this.state.singleMovieData.title}</p>
-              <button className="rating">Rating: {((this.state.singleMovieData.average_rating/10)*100).toFixed(0)}%</button>
+              <div className="rating">Rating: {((this.state.singleMovieData.average_rating/10)*100).toFixed(0)}%</div>
             </div>
           </div>
             <section className="movie-info">
