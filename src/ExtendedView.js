@@ -11,9 +11,9 @@ class ExtendedView extends React.Component {
     }
   }
 
-  componentDidMount(id) {
+  componentDidMount() {
     console.log('is this working??? 2')
-    fetchSingleMoviePoster(id)
+    fetchSingleMoviePoster(this.props.id)
       .then(data => {
         this.setState({
            singleMovieData: data.movie
@@ -25,24 +25,23 @@ class ExtendedView extends React.Component {
   render() {
     return(
       <div className="extended-page">
-        <button className="back" onClick={() => props.changeExtendedState()}>BACK</button>
           <div className="movie-poster">
             <div
               className="movie-image"
-              style={{backgroundImage: `url(${props.singleMovie.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}
+              style={{backgroundImage: `url(${this.state.singleMovieData.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}
             >
-              <p className="title">{props.singleMovie.title}</p>
-              <button className="rating">Rating: {((props.singleMovie.average_rating/10)*100).toFixed(0)}%</button>
+              <p className="title">{this.state.singleMovieData.title}</p>
+              <button className="rating">Rating: {((this.state.singleMovieData.average_rating/10)*100).toFixed(0)}%</button>
             </div>
           </div>
             <section className="movie-info">
               <div className="date-time">
-                <p className="release-date">{(props.singleMovie.release_date)}</p>
-                <p className="genre">{props.singleMovie.genres}</p>
-                <p className="runtime">{props.singleMovie.runtime} minutes</p>
+                <p className="release-date">{(this.state.singleMovieData.release_date)}</p>
+                <p className="genre">{this.state.singleMovieData.genres}</p>
+                <p className="runtime">{this.state.singleMovieData.runtime} minutes</p>
               </div>
-              <p className="tagline">{props.singleMovie.tagline}</p>
-              <p className="overview">{props.singleMovie.overview}</p>
+              <p className="tagline">{this.state.singleMovieData.tagline}</p>
+              <p className="overview">{this.state.singleMovieData.overview}</p>
             </section>
       </div>
     )
@@ -51,7 +50,7 @@ class ExtendedView extends React.Component {
 
 export default ExtendedView
 
-
+// <button className="back" onClick={() => props.changeExtendedState()}>BACK</button>
 // function ExtendedView(props) {
 //
 //

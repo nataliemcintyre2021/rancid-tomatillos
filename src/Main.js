@@ -42,7 +42,7 @@ class Main extends React.Component {
     }
     if (!this.state.isExtendedView) {
       this.setState({isExtendedView: true})
-      this.getSingleMoviePoster(id)
+      // this.getSingleMoviePoster(id)
     }
 
   }
