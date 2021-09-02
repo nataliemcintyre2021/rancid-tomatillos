@@ -76,8 +76,7 @@ class Main extends React.Component {
     if (!this.state.loading && !this.state.error) {
       return (
         <div>
-          <Route exact path="/" render={({ match }) => {
-
+          <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
                 <div className='all-movies-container'>
@@ -94,10 +93,12 @@ class Main extends React.Component {
               return (
                 <main className='main-section'>
                   <div className='single-movie-container'>
-                  <ExtendedView singleMovie={this.state.singleMovie}
-                  id={this.state.clickedPosterID || match.params.id}
-                  changeExtendedState={this.changeExtendedState}
-                  getSingleMoviePoster={this.getSingleMoviePoster}/>
+                    <ExtendedView
+                      singleMovie={this.state.singleMovie}
+                      id={this.state.clickedPosterID || match.params.id}
+                      changeExtendedState={this.changeExtendedState}
+                      getSingleMoviePoster={this.getSingleMoviePoster}
+                    />
                   </div>
                 </main>
               )
