@@ -12,7 +12,7 @@ function App() {
       <Route to="/">
         <Header />
         <Main />
-        
+        <Footer />
       </Route>
     </div>
   );
