@@ -49,13 +49,11 @@ class Main extends React.Component {
     }
     if (!this.state.loading && !this.state.error) {
       return (
-        <div>
+        <>
           <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
-                <div className='all-movies-container'>
-                    <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
-                </div>
+                <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
                 <List movieData={this.state.movieData} key={Date.now()}/>
               </main> )
             }
@@ -75,7 +73,7 @@ class Main extends React.Component {
             )
           }
           }/>
-        </div>
+        </>
       )
     }
   }
