@@ -1,4 +1,4 @@
-.row-container {
+.posters-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9,7 +9,7 @@
   overflow-x: scroll;
 }
 
-.row-posters {
+.row-of-posters {
   display: flex;
   padding: 20px;
 }
