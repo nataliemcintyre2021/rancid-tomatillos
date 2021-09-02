@@ -16,7 +16,7 @@ const list = sortedByRating.map(movie =>
   return (
     <div className='list-wrapper'>
       <h2>Movies by Ratings 📈</h2>
-      <ul className='ist'>
+      <ul className='list'>
         { list }
       </ul>
     </div>
