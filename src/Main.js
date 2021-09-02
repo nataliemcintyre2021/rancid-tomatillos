@@ -52,17 +52,6 @@ class Main extends React.Component {
     this.setState({clickedPosterID: id})
   }
 
-  getSingleMoviePoster = (id) => {
-    console.log('is this working??? 2')
-    fetchSingleMoviePoster(id)
-     .then(data => {
-       this.setState({
-         singleMovie: data.movie
-       })
-     })
-     .catch(error => this.setState({error: error}))
-  }
-
   render() {
     // console.log("render")
     if(this.state.error) {
