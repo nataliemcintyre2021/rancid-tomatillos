@@ -12,7 +12,6 @@ class ExtendedView extends React.Component {
   }
 
   componentDidMount() {
-    console.log('is this working??? 2')
     fetchSingleMoviePoster(this.props.id)
       .then(data => {
         this.setState({
@@ -49,10 +48,3 @@ class ExtendedView extends React.Component {
 }
 
 export default ExtendedView
-
-// <button className="back" onClick={() => props.changeExtendedState()}>BACK</button>
-// function ExtendedView(props) {
-//
-//
-
-// }
