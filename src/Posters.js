@@ -1,10 +1,12 @@
 import React from 'react'
 import './Posters.css'
+import { Link } from 'react-router-dom';
 
 function Posters(props) {
   const movies = props.movieData.map(movie => (
-    <img className="single-poster" key={movie.id} onClick={() => props.changeExtendedState(movie.id)} src={movie.poster_path} alt={movie.title}
-    />
+    <Link to={`/${movie.id}`}>
+      <img className="single-poster" key={movie.id} onClick={() => props.changeExtendedState(movie.id)} src={movie.poster_path} alt={movie.title}/>
+    </Link>
     )
   )
 

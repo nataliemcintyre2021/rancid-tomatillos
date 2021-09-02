@@ -5,6 +5,11 @@ beforeEach(() => {
 });
 
 describe('Expanded single movie poster view flow', () => {
+
+  it('Should get expanded view', () => {
+    cy.get(".single-poster").first().click()
+    cy.intercept('http://localhost:3000/dashboard', fixture: "singlemovies.json")
+  })
   it('Should be able to click on movie poster and see expanded view of single movie poster', () => {
     cy.fixture('../fixtures/singleMovies.json').then((data) => {
       const title = data.singleMovies[0].title
