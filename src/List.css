@@ -2,13 +2,16 @@
   width: 50%;
   margin-top: 100px;
   margin-left: 25%;
+  margin-bottom: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
   background-color: white;
+  opacity: 0.88;
   height: 500px;
   overflow-y: scroll;
+  border-radius: 5px;
 }
 
 .list {
