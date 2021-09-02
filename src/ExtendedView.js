@@ -35,7 +35,7 @@ class ExtendedView extends React.Component {
           </div>
             <section className="movie-info">
               <div className="date-time">
-                <p className="release-date">{(this.state.singleMovieData.release_date)}</p>
+                <p className="release-date">{this.state.singleMovieData.release_date}</p>
                 <p className="genre">{this.state.singleMovieData.genres}</p>
                 <p className="runtime">{this.state.singleMovieData.runtime} minutes</p>
               </div>
