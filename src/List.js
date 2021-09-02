@@ -8,7 +8,7 @@ const list = sortedByRating.map(movie =>
 
     <li>
       <p className='list-title'>{movie.title}</p>
-      <p className='list-rating'>{movie.average_rating}</p>
+      <p className='list-rating'>{(movie.average_rating.toFixed(1) * 10) + '%'}</p>
     </li>
 
 )
