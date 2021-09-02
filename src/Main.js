@@ -56,9 +56,7 @@ class Main extends React.Component {
             return (
               <main className='main-section'>
                 <div className='all-movies-container'>
-                  <div>
                     <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} />
-                  </div>
                 </div>
                 <List movieData={this.state.movieData}/>
               </main> )
@@ -69,13 +67,11 @@ class Main extends React.Component {
             const { params } = match
             return (
               <main className='main-section'>
-                <div className='single-movie-container'>
                   <ExtendedView
                     singleMovie={this.state.singleMovie}
                     id={parseInt(params.id)}
                     changeExtendedState={this.changeExtendedState}
                   />
-                </div>
               </main>
             )
           }
