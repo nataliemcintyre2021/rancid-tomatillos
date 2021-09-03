@@ -14,7 +14,6 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
-      singleMovie: {},
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -52,8 +51,6 @@ class Main extends React.Component {
       return (
 
         <>
-        <Switch>
-
         <Route exact path="/movies" render={() => {
           return (
             <main className='main-section'>
@@ -68,19 +65,13 @@ class Main extends React.Component {
               return (
                 <main className='main-section'>
                     <ExtendedView
-                      singleMovie={this.state.singleMovie}
                       id={parseInt(params.id)}
-                      changeExtendedState={this.changeExtendedState}
                       key={parseInt(params.id)}
                     />
                 </main>
               )
             }
             }/>
-
-            <Route path="/movies/*" component={ NoMatch }/>
-
-          </Switch>
         </>
 
       )
@@ -90,3 +81,4 @@ class Main extends React.Component {
 
 
 export default Main
+//  <Route path="/movies/*" component={ NoMatch }/>
