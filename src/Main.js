@@ -51,29 +51,32 @@ class Main extends React.Component {
       return (
         <>
           <Switch>
-          <Route exact path="/" render={() => {
-            return (
-              <main className='main-section'>
-                <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
-                <List movieData={this.state.movieData} key={Date.now()}/>
-              </main> )
-            }
-          }/>
+            <Route exact path="/" render={() => {
+              return (
+                <main className='main-section'>
+                  <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
+                  <List movieData={this.state.movieData} key={Date.now()}/>
+                </main> )
+              }
+            }/>
 
-          <Route exact path="/:id" render={({ match }) => {
-            const { params } = match
-            return (
-              <main className='main-section'>
-                  <ExtendedView
-                    singleMovie={this.state.singleMovie}
-                    id={parseInt(params.id)}
-                    changeExtendedState={this.changeExtendedState}
-                    key={parseInt(params.id)}
-                  />
-              </main>
-            )
-          }
-          }/>
+            <Route exact path="/:id" render={({ match }) => {
+              const { params } = match
+              return (
+                <main className='main-section'>
+                    <ExtendedView
+                      singleMovie={this.state.singleMovie}
+                      id={parseInt(params.id)}
+                      changeExtendedState={this.changeExtendedState}
+                      key={parseInt(params.id)}
+                    />
+                </main>
+              )
+            }
+            }/>
+            <Route>
+              <NoMatch />
+            <Route>
           </Switch>
         </>
       )
