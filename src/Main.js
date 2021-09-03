@@ -6,7 +6,7 @@ import Error from './Error'
 import NoMatch from './NoMatch'
 import './Main.css'
 import {getAllMovies} from './apiCalls'
-import { Route, Switch, Component } from 'react-router-dom';
+import { Route, Switch, Component, Redirect } from 'react-router-dom';
 
 
 class Main extends React.Component {
@@ -54,6 +54,15 @@ class Main extends React.Component {
         <>
         <Switch>
 
+        <Route exact path="/movies" render={() => {
+          return (
+            <main className='main-section'>
+              <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
+              <List movieData={this.state.movieData} key={Date.now()}/>
+            </main> )
+          }
+        }/>
+
             <Route exact path="/movies/:id" render={({ match }) => {
               const { params } = match
               return (
@@ -69,16 +78,7 @@ class Main extends React.Component {
             }
             }/>
 
-            <Route exact path="/" render={() => {
-              return (
-                <main className='main-section'>
-                  <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
-                  <List movieData={this.state.movieData} key={Date.now()}/>
-                </main> )
-              }
-            }/>
-
-            <Route component={ NoMatch }/>
+            <Route path="/movies/*" component={ NoMatch }/>
 
           </Switch>
         </>

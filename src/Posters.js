@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Posters(props) {
   const movies = props.movieData.map(movie => (
-    <Link to={`/${movie.id}`}>
+    <Link to={`/movies/${movie.id}`}>
       <img className="single-poster" key={movie.id} src={movie.poster_path} alt={movie.title}/>
     </Link>
     )
