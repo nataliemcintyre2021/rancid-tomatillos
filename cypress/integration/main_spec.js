@@ -25,4 +25,6 @@ describe('Main movie cards display of App', () => {
     })
   })
 
+  it('Should')
+
 })// End describe block
