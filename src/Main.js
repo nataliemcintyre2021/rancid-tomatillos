@@ -14,7 +14,6 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
-      singleMovie: {},
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -55,7 +54,7 @@ class Main extends React.Component {
           <Route exact path="/movies" render={() => {
             return (
               <main className='main-section'>
-                <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
+                <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
                 <List movieData={this.state.movieData} key={Date.now()}/>
               </main> )
             }
