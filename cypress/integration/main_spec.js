@@ -4,7 +4,7 @@ beforeEach(() => {
 
 describe('Main movie cards display of App', () => {
 
-  it('Should confirmt that true is equal to be true', () => {
+  it('Should confirm that true is equal to be true', () => {
     expect(true).to.equal(true)
   })
 
@@ -14,11 +14,15 @@ describe('Main movie cards display of App', () => {
   });
 
   it('Should display 40 movie cards', () => {
-    cy.get('main').find('div').find('div').find('div').should('have.length', 40)
+    cy.get('main').find('a').should('have.length', 40)
   });
 
   it('Should fecth data for the 40 movies cards', () => {
-
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixtures: 'movies.json'}).as('moviesRoute')
+    cy.visit('http://localhost:3000')
+    cy.wait('@moviesRoute').then((interception) => {
+      'response.ok'
+    })
   })
 
 })// End describe block
