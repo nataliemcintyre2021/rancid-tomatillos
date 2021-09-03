@@ -5,7 +5,7 @@ import List from './List'
 import Error from './Error'
 import './Main.css'
 import {getAllMovies} from './apiCalls'
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 class Main extends React.Component {
@@ -50,6 +50,7 @@ class Main extends React.Component {
     if (!this.state.loading && !this.state.error) {
       return (
         <>
+          <Switch>
           <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
@@ -73,6 +74,7 @@ class Main extends React.Component {
             )
           }
           }/>
+          </Switch>
         </>
       )
     }
