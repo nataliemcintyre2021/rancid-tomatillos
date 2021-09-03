@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Route to="/">
-        <Redirect to="/movies"/>
+
         <Header />
         <Main />
         <Footer />

@@ -1,6 +1,7 @@
 import React from 'react'
 import {fetchSingleMoviePoster} from './apiCalls'
 import './ExtendedView.css'
+import NoMatch from './NoMatch'
 
 class ExtendedView extends React.Component {
   constructor() {
@@ -18,10 +19,15 @@ class ExtendedView extends React.Component {
            singleMovieData: data.movie
         })
       })
-      .catch(error => this.setState({error: error}))
+      .catch(error => this.setState({error: error.message}))
   }
 
   render() {
+    if(this.state.error) {
+      return (
+        <NoMatch />
+      )
+    }
     return(
       <div className="extended-page">
           <div className="movie-poster">
