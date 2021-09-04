@@ -21,19 +21,20 @@ describe('Main movie cards display of App', () => {
     cy.get('main').find('.row-of-posters')
   })
 
-  it('Should display the correct elements on page load', () => {
-
-
-    cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
-    cy.get('ul').find('li').should('have.length', 40)
-    cy.get('footer').contains('Footer goes here')
-  });
-
   it('Should display 40 movie cards', () => {
     cy.get('main').find('a').should('have.length', 40)
   });
 
-  it('Should fecth data for the 2 stubbed movies cards', () => {
+  it('Should render a list that ranks movies from highest to lowest rating', () => {
+    cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
+    cy.get('ul').find('li').should('have.length', 40)
+  })
+
+  it('Should display render a footer component', () => {
+    cy.get('footer').contains('Footer goes here')
+  });
+
+  it('Should fecth data for the 2 stubbed movies cards and render the correpsonding elements', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies'}).as('movies')
     cy.visit('http://localhost:3000/movies')
     cy.wait('@movies').then((interception) => {
