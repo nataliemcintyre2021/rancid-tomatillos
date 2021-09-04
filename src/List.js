@@ -23,7 +23,6 @@ class List extends React.Component {
 
   render() {
     let sortedByRating = this.state.listData.sort((a, b) => b.average_rating - a.average_rating)
-    // console.log(sortedByRating, '<><>')
     const list = sortedByRating.map(movie => {
       return (
         <li>
