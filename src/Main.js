@@ -14,7 +14,6 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
-      listData: [],
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -28,7 +27,6 @@ class Main extends React.Component {
       this.setState({
         loading: false,
         movieData: data.movies,
-        listData: data.movies
       })
     })
     .catch(error => this.setState({error: error.message}))
@@ -51,13 +49,12 @@ class Main extends React.Component {
     }
     if (!this.state.loading && !this.state.error) {
       return (
-
         <>
           <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
                 <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
-                <List listData={this.state.listData} key={Date.now()}/>
+                <List key={Date.now()}/>
               </main> )
             }
           }/>
@@ -74,7 +71,6 @@ class Main extends React.Component {
           }
           }/>
         </>
-
       )
     }
   }
