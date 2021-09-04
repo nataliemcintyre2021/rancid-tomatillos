@@ -51,27 +51,26 @@ class Main extends React.Component {
       return (
 
         <>
-        <Route exact path="/movies" render={() => {
-          return (
-            <main className='main-section'>
-              <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
-              <List movieData={this.state.movieData} key={Date.now()}/>
-            </main> )
-          }
-        }/>
-
-            <Route exact path="/movies/:id" render={({ match }) => {
-              const { params } = match
-              return (
-                <main className='main-section'>
-                    <ExtendedView
-                      id={parseInt(params.id)}
-                      key={parseInt(params.id)}
-                    />
-                </main>
-              )
+          <Route exact path="/movies" render={() => {
+            return (
+              <main className='main-section'>
+                <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
+                <List movieData={this.state.movieData} key={Date.now()}/>
+              </main> )
             }
-            }/>
+          }/>
+          <Route exact path="/movies/:id" render={({ match }) => {
+            const { params } = match
+            return (
+              <main className='main-section'>
+                  <ExtendedView
+                    id={parseInt(params.id)}
+                    key={parseInt(params.id)}
+                  />
+              </main>
+            )
+          }
+          }/>
         </>
 
       )
@@ -81,4 +80,5 @@ class Main extends React.Component {
 
 
 export default Main
-//  <Route path="/movies/*" component={ NoMatch }/>
+
+//<Route path="/movies/*" component={ NoMatch }/>
