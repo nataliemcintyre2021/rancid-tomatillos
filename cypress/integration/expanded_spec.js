@@ -13,7 +13,7 @@ describe('Expanded single movie poster view flow', () => {
   it('Should fecth data for the 2 stubbed movies cards and render the correpsonding elements', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'moneyplane'}).as('moneyplane')
     cy.visit('http://localhost:3000/movies')
-    cy.wait('@movies').then((interception) => {
+    cy.wait('@moneyplane').then((interception) => {
       'response.ok'
     })
     cy.get('main div:first').find('h2').contains('All Movies')
