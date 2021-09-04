@@ -57,7 +57,7 @@ class Main extends React.Component {
             return (
               <main className='main-section'>
                 <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
-                <List movieData={this.state.movieData} key={Date.now()}/>
+                <List listData={this.state.listData} key={Date.now()}/>
               </main> )
             }
           }/>

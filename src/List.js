@@ -2,7 +2,7 @@ import './List.css'
 
 const List = (props) => {
 
-let sortedByRating = props.movieData.sort((a, b) => b.average_rating - a.average_rating)
+let sortedByRating = props.listData.sort((a, b) => b.average_rating - a.average_rating)
 // console.log(sortedByRating, '<><>')
 const list = sortedByRating.map(movie =>
 
