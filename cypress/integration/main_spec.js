@@ -12,10 +12,18 @@ describe('Main movie cards display of App', () => {
     cy.get('p').contains('Loading...')
   })
 
-  it('Should display the correct elements on page load', () => {
+  it('Should render a header component', () => {
     cy.get('header').find('nav').contains('Nav goes here')
+  })
+
+  it('Should render a component that displays all the movie cards', () => {
     cy.get('main div:first').find('h2').contains('All Movies')
     cy.get('main').find('.row-of-posters')
+  })
+
+  it('Should display the correct elements on page load', () => {
+
+
     cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
     cy.get('ul').find('li').should('have.length', 40)
     cy.get('footer').contains('Footer goes here')
