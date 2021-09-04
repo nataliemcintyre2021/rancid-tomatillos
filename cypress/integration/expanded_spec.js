@@ -25,6 +25,20 @@ describe('Expanded single movie poster view flow', () => {
 
 
 
+//it should update url and show expanded view of movie upon user click of specific movie poster
+//it should render a header
+//it should render a footer
+//it should show a loading message while the movie data is being fetched
+//it should fetch data for the 2 stubbed movie cards and render corresponding elements
+//it should fetch data for the 2 stubbed movie cards and show movie posters
+//it should fetch data for the 2 stubbed movie cards and show movie titles
+//it should fetch data for the 2 stubbed movie cards and show movie ratings
+//it should fetch data for the 2 stubbed movie cards and show movie release dates
+//it should fetch data for the 2 stubbed movie cards and show movie genres
+//it should fetch data for the 2 stubbed movie cards and show movie runtimes
+//it should fetch data for the 2 stubbed movie cards and show movie overviews
+//it should fetch data for the 2 stubbed movie cards and show movie tag lines
+
 
 
 
