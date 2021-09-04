@@ -1,93 +1,117 @@
 beforeEach(() => {
-  cy.visit('http://localhost:3000/dashboard')
+  cy.visit('http://localhost:3000/movies')
   // cy.fixture('../fixtures/singleMovies.json')
   // cy.intercept("GET", 'http://localhost:3000/dashboard', {fixture: })
 });
 
 describe('Expanded single movie poster view flow', () => {
 
-  it('Should get expanded view', () => {
-    cy.get(".single-poster").first().click()
-    cy.intercept('http://localhost:3000/dashboard', fixture: "singlemovies.json")
+  it('Should confirm true to be true', () => {
+    expect(true).to.equal(true)
   })
-  it('Should be able to click on movie poster and see expanded view of single movie poster', () => {
-    cy.fixture('../fixtures/singleMovies.json').then((data) => {
-      const title = data.singleMovies[0].title
-      cy.intercept('GET', 'http://localhost:3000/dashboard', {
-        statusCode: 200,
-        body: title
-      })
+
+  it('Should fecth data for the 2 stubbed movies cards and render the correpsonding elements', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'moneyplane'}).as('moneyplane')
+    cy.visit('http://localhost:3000/movies')
+    cy.wait('@movies').then((interception) => {
+      'response.ok'
     })
-    cy.get(".single-poster").first().click()
-    cy.get(".movie-image")
-      .should('have.attr', 'style')
-      .and('equal', 'background-image: url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg"); background-size: cover; height: 75vh;')
+    cy.get('main div:first').find('h2').contains('All Movies')
+    cy.get('main').find('a').should('have.class', 'single-poster')
 
-})
-
-  // it('Should be able to see title of expanded movie', () => {
-  //   cy.get(".single-poster").first().click()
-  //   cy.get(".title")
-  //     .contains('Money Plane')
-  // })
-  it('Should be able to see title of expanded movie', () => {
-    cy.fixture('../fixtures/singleMovies.json').then((data) => {
-      const title = data.singleMovies[0].title
-      cy.intercept('GET', 'http://localhost:3000/dashboard', {
-        statusCode: 200,
-        body: title
-      })
-    })
-    cy.get(".single-poster").first().click()
-    cy.get(".title")
-      .contains('Money Plane')
   })
 
-
-  // it('Should be able to see rating of expanded movie', () => {
-  //   cy.get(".rating")
-  // })
-  it('Should be able to see release date of expanded movie', () => {
-    cy.get(".single-poster").first().click()
-    cy.get(".release-date")
-      .contains('2020-09-29')
-  })
-
-  it('Should be able to see genres of expanded movie', () => {
-    cy.get(".single-poster").first().click()
-    cy.get(".genre")
-      .contains('Action')
-  })
-
-  it('Should be able to see runtime of expanded movie', () => {
-    cy.get(".single-poster").first().click()
-    cy.get(".runtime")
-      .contains("82 minutes")
-  })
-
-  // it('Should be able to see tagline of expanded movie', () => {
-  //   cy.get(".single-poster").first().click()
-  //   cy.get(".tagline")
-  //     .contains()
-  // })
-
-  it('Should be able to see overview of expanded movie', () => {
-    cy.get(".single-poster").first().click()
-    cy.get(".overview")
-      .contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
-  })
+})// End describe block
 
 
-  it('Should render a header', () => {
-    cy.get(".single-poster").first().click()
-    cy.get('header')
-      .contains('Nav goes here')
-  })
 
-  it('Should render a footer', () => {
-    cy.get(".single-poster").first().click()
-    cy.get('footer')
-      .contains('Footer goes here')
-  })
 
-})
+
+
+
+
+// =================== old code ==========
+
+// it('Should get expanded view', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.intercept('http://localhost:3000/dashboard', fixture: "singlemovies.json")
+// })
+// it('Should be able to click on movie poster and see expanded view of single movie poster', () => {
+//   cy.fixture('../fixtures/singleMovies.json').then((data) => {
+//     const title = data.singleMovies[0].title
+//     cy.intercept('GET', 'http://localhost:3000/dashboard', {
+//       statusCode: 200,
+//       body: title
+//     })
+//   })
+//   cy.get(".single-poster").first().click()
+//   cy.get(".movie-image")
+//     .should('have.attr', 'style')
+//     .and('equal', 'background-image: url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg"); background-size: cover; height: 75vh;')
+//
+// })
+//
+// // it('Should be able to see title of expanded movie', () => {
+// //   cy.get(".single-poster").first().click()
+// //   cy.get(".title")
+// //     .contains('Money Plane')
+// // })
+// it('Should be able to see title of expanded movie', () => {
+//   cy.fixture('../fixtures/singleMovies.json').then((data) => {
+//     const title = data.singleMovies[0].title
+//     cy.intercept('GET', 'http://localhost:3000/dashboard', {
+//       statusCode: 200,
+//       body: title
+//     })
+//   })
+//   cy.get(".single-poster").first().click()
+//   cy.get(".title")
+//     .contains('Money Plane')
+// })
+//
+//
+// // it('Should be able to see rating of expanded movie', () => {
+// //   cy.get(".rating")
+// // })
+// it('Should be able to see release date of expanded movie', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.get(".release-date")
+//     .contains('2020-09-29')
+// })
+//
+// it('Should be able to see genres of expanded movie', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.get(".genre")
+//     .contains('Action')
+// })
+//
+// it('Should be able to see runtime of expanded movie', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.get(".runtime")
+//     .contains("82 minutes")
+// })
+//
+// // it('Should be able to see tagline of expanded movie', () => {
+// //   cy.get(".single-poster").first().click()
+// //   cy.get(".tagline")
+// //     .contains()
+// // })
+//
+// it('Should be able to see overview of expanded movie', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.get(".overview")
+//     .contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
+// })
+//
+//
+// it('Should render a header', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.get('header')
+//     .contains('Nav goes here')
+// })
+//
+// it('Should render a footer', () => {
+//   cy.get(".single-poster").first().click()
+//   cy.get('footer')
+//     .contains('Footer goes here')
+// })
