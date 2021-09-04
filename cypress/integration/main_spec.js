@@ -16,21 +16,25 @@ describe('Main movie cards display of App', () => {
     cy.get('header').find('nav').contains('Nav goes here')
     cy.get('main div:first').find('h2').contains('All Movies')
     cy.get('main').find('.row-of-posters')
+    cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
     cy.get('ul').find('li').should('have.length', 40)
-
+    cy.get('footer').contains('Footer goes here')
   });
 
   it('Should display 40 movie cards', () => {
     cy.get('main').find('a').should('have.length', 40)
   });
 
-  it('Should fecth data for the 40 movies cards', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixtures: 'movies.json'}).as('moviesRoute')
-    cy.wait('@moviesRoute').then((interception) => {
+  it('Should fecth data for the 2 stubbed movies cards', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies'}).as('movies')
+    cy.visit('http://localhost:3000/movies')
+    cy.wait('@movies').then((interception) => {
       'response.ok'
     })
+    cy.get('main div:first').find('h2').contains('All Movies')
+    cy.get('main').find('a').should('have.length', 2)
+    cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
+    cy.get('ul').find('li').should('have.length', 2)
   })
-
-  it('Should')
 
 })// End describe block
