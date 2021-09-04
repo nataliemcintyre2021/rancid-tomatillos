@@ -14,7 +14,6 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
-      singleMovie: {},
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -52,32 +51,26 @@ class Main extends React.Component {
       return (
 
         <>
-
-
-        <Route exact path="/" render={() => {
-          return (
-            <main className='main-section'>
-              <Posters title='All Movies' movieData={this.state.movieData} changeExtendedState={this.changeExtendedState} key={(Date.now() + 5)}/>
-              <List movieData={this.state.movieData} key={Date.now()}/>
-            </main> )
-          }
-        }/>
-
-            <Route exact path="/:id" render={({ match }) => {
-              const { params } = match
-              return (
-                <main className='main-section'>
-                    <ExtendedView
-                      singleMovie={this.state.singleMovie}
-                      id={parseInt(params.id)}
-                      changeExtendedState={this.changeExtendedState}
-                      key={parseInt(params.id)}
-                    />
-                </main>
-              )
+          <Route exact path="/" render={() => {
+            return (
+              <main className='main-section'>
+                <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
+                <List movieData={this.state.movieData} key={Date.now()}/>
+              </main> )
             }
-            }/>
-
+          }/>
+          <Route exact path="/:id" render={({ match }) => {
+            const { params } = match
+            return (
+              <main className='main-section'>
+                  <ExtendedView
+                    id={parseInt(params.id)}
+                    key={parseInt(params.id)}
+                  />
+              </main>
+            )
+          }
+          }/>
         </>
 
       )
@@ -87,3 +80,5 @@ class Main extends React.Component {
 
 
 export default Main
+
+//<Route path="/movies/*" component={ NoMatch }/>
