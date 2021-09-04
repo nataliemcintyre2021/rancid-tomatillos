@@ -51,7 +51,7 @@ class Main extends React.Component {
       return (
 
         <>
-          <Route exact path="/movies" render={() => {
+          <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
                 <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
@@ -59,7 +59,7 @@ class Main extends React.Component {
               </main> )
             }
           }/>
-          <Route exact path="/movies/:id" render={({ match }) => {
+          <Route exact path="/:id" render={({ match }) => {
             const { params } = match
             return (
               <main className='main-section'>
