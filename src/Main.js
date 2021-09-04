@@ -76,7 +76,4 @@ class Main extends React.Component {
   }
 }
 
-
 export default Main
-
-//<Route path="/movies/*" component={ NoMatch }/>
