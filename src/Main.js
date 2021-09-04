@@ -14,6 +14,7 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
+      listData: [],
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -26,7 +27,8 @@ class Main extends React.Component {
     .then(data => {
       this.setState({
         loading: false,
-        movieData: data.movies
+        movieData: data.movies,
+        listData: data.movies
       })
     })
     .catch(error => this.setState({error: error.message}))
