@@ -1,5 +1,5 @@
 beforeEach(() => {
-  cy.visit('http://localhost:3000/movies')
+  cy.visit('http://localhost:3000/')
   // cy.fixture('../fixtures/singleMovies.json')
   // cy.intercept("GET", 'http://localhost:3000/dashboard', {fixture: })
 });
@@ -8,6 +8,11 @@ describe('Expanded single movie poster view flow', () => {
 
   it('Should confirm true to be true', () => {
     expect(true).to.equal(true)
+  })
+
+  it('Should update url to expanded view page of movie upon user click of specific movie poster', () => {
+    cy.get('.single-poster').first().click()
+    cy.url().should('include', '/694919')
   })
 
   it('Should fecth data for the 2 stubbed movies cards and render the correpsonding elements', () => {
