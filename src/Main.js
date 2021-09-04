@@ -6,7 +6,7 @@ import Error from './Error'
 import NoMatch from './NoMatch'
 import './Main.css'
 import {getAllMovies} from './apiCalls'
-import { Route, Switch, Component, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 class Main extends React.Component {

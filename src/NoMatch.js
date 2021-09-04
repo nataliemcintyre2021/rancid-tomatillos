@@ -1,9 +1,10 @@
 import React from 'react';
+import './NoMatch.css'
 
 function NoMatch() {
   return (
-    <section>
-      <p>No page found.</p>
+    <section className='no-page'>
+      <p>404 No page found.</p>
     </section>
   )
 }
