@@ -6,7 +6,7 @@ export const cleanData = (data) => {
 }
 
 const cleanDateData = (data) => {
-  const newDate = data.movie.release_date.split("").slice(0, 4).join("")
+  const newDate = data.movie.release_date.slice(0, 4)
   return newDate
 }
 
