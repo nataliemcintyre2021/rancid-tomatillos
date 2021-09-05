@@ -65,12 +65,13 @@ class Main extends React.Component {
             return (
               <main className='main-section'>
                 <input
+                className='search-bar'
                 type='text'
                 placeholder='Search by title'
                 name='search'
                 value=''
                 />
-                <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
+                <Posters title='All Movies' movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies} key={(Date.now() + 1)}/>
                 <List key={Date.now()}/>
               </main> )
             }
