@@ -18,6 +18,7 @@ class ExtendedView extends React.Component {
   componentDidMount() {
     this.setState({loading: true})
     fetchSingleMoviePoster(this.props.id)
+    .then(data => cleanData(data))
       .then(data => {
         this.setState({
           loading: false,
@@ -46,7 +47,7 @@ class ExtendedView extends React.Component {
               style={{backgroundImage: `url(${this.state.singleMovieData.backdrop_path})`, backgroundSize: "cover", height: "75vh"}}
             >
               <p className="title">{this.state.singleMovieData.title}</p>
-              <div className="rating">Rating: {((this.state.singleMovieData.average_rating/10)*100).toFixed(0)}%</div>
+              <div className="rating">Rating: {this.state.singleMovieData.average_rating}%</div>
             </div>
           </div>
           <section className="movie-info">
