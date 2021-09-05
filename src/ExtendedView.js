@@ -1,6 +1,7 @@
 
 import React from 'react'
 import {fetchSingleMoviePoster} from './apiCalls'
+import {cleanData} from './utils'
 import './ExtendedView.css'
 import NoMatch from './NoMatch'
 
