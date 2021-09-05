@@ -55,7 +55,10 @@ class Main extends React.Component {
     }
     if (this.state.loading) {
       return (
-        <p>'Loading...'</p>
+        <section className='loading-container'>
+          <p className='loading-text'>Loading...  😎</p>
+        </section>
+
       )
     }
     return (
