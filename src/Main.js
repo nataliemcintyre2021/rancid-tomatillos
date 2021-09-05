@@ -14,6 +14,7 @@ class Main extends React.Component {
     super();
     this.state = {
       movieData: [],
+      filteredMovies: [],
       clickedPosterID: null,
       loading: false,
       error: ''
@@ -36,6 +37,16 @@ class Main extends React.Component {
     this.setState({clickedPosterID: id})
   }
 
+  searchMovies = (event) => {
+    const { value } = event.target
+    const foundMovies = this.state.movieData.filter(movie => {
+      if(movie.title.toLowerCase().includes(value.toLowerCase())) {
+        return movie
+      }
+    })
+    this.setState({ filteredMovies: foundMovies})
+  }
+
   render() {
     if(this.state.error) {
       return (
@@ -53,7 +64,17 @@ class Main extends React.Component {
           <Route exact path="/" render={() => {
             return (
               <main className='main-section'>
-                <Posters title='All Movies' movieData={this.state.movieData} key={(Date.now() + 1)}/>
+                <input
+                className='search-bar'
+                type='text'
+                placeholder='Search by title'
+                name='search'
+                onChange={event => this.searchMovies(event)}
+                />
+                <Posters
+                title='All Movies'
+                movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
+                key={(Date.now() + 1)}/>
                 <List key={Date.now()}/>
               </main> )
             }
