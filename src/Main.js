@@ -40,7 +40,7 @@ class Main extends React.Component {
   searchMovies = (event) => {
     const { value } = event.target
     const foundMovies = this.state.movieData.filter(movie => {
-      if(movie.title.toLowerCase.includes(value.toLowerCase())) {
+      if(movie.title.toLowerCase().includes(value.toLowerCase())) {
         return movie
       }
     })
@@ -69,10 +69,11 @@ class Main extends React.Component {
                 type='text'
                 placeholder='Search by title'
                 name='search'
-                value=''
-                onChange={this.searchMovies}
+                onChange={event => this.searchMovies(event)}
                 />
-                <Posters title='All Movies' movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies} key={(Date.now() + 1)}/>
+                <Posters title='All Movies'
+                movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
+                key={(Date.now() + 1)}/>
                 <List key={Date.now()}/>
               </main> )
             }
