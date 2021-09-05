@@ -70,6 +70,7 @@ class Main extends React.Component {
                 placeholder='Search by title'
                 name='search'
                 value=''
+                onChange={event => this.searchMovies(event)}
                 />
                 <Posters title='All Movies' movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies} key={(Date.now() + 1)}/>
                 <List key={Date.now()}/>
