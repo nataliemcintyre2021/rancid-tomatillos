@@ -18,7 +18,12 @@
    width: 250px;
    height: 350px;
    margin: 10px;
+   transition: transform 450ms;
  }
+
+ .single-poster:hover {
+  transform: scale(1.08);
+}
 
  /* .row-container::-webkit-scrollbar {
   /* this is sayng; hey all browsers, don't display the scroll bar,

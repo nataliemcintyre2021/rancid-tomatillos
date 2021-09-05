@@ -6,12 +6,4 @@
   height: 55px;
   z-index: 1;
   background-color: red;
-  display: flex;
-  justify-content: space-between;
-  transition-timing-function: ease-in;
-  transition: all 0.5s;
-}
-
-.nav_red {
-
 }
