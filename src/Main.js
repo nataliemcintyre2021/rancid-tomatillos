@@ -58,42 +58,40 @@ class Main extends React.Component {
         <p>'Loading...'</p>
       )
     }
-    if (!this.state.loading && !this.state.error) {
-      return (
-        <>
-          <Route exact path="/" render={() => {
-            return (
-              <main className='main-section'>
-                <input
-                className='search-bar'
-                type='text'
-                placeholder='Search by title'
-                name='search'
-                onChange={event => this.searchMovies(event)}
-                />
-                <Posters
-                title='All Movies'
-                movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
-                key={(Date.now() + 1)}/>
-                <List key={Date.now()}/>
-              </main> )
-            }
-          }/>
-          <Route exact path="/:id" render={({ match }) => {
-            const { params } = match
-            return (
-              <main className='main-section'>
-                  <ExtendedView
-                    id={parseInt(params.id)}
-                    key={parseInt(params.id)}
-                  />
-              </main>
-            )
+    return (
+      <>
+        <Route exact path="/" render={() => {
+          return (
+            <main className='main-section'>
+              <input
+              className='search-bar'
+              type='text'
+              placeholder='Search by title'
+              name='search'
+              onChange={event => this.searchMovies(event)}
+              />
+              <Posters
+              title='All Movies'
+              movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
+              key={(Date.now() + 1)}/>
+              <List key={Date.now()}/>
+            </main> )
           }
-          }/>
-        </>
-      )
-    }
+        }/>
+        <Route exact path="/:id" render={({ match }) => {
+          const { params } = match
+          return (
+            <main className='main-section'>
+                <ExtendedView
+                  id={parseInt(params.id)}
+                  key={parseInt(params.id)}
+                />
+            </main>
+          )
+        }
+        }/>
+      </>
+    )
   }
 }
 
