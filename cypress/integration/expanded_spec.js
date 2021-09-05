@@ -60,6 +60,8 @@ describe('Expanded single movie poster view flow', () => {
 
   })
 
+  it('Should show error page if bad url typed in')
+
   // it('Should fetch data for the 2 stubbed movies cards and render the correpsonding elements', () => {
   //   cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'moneyplane'}).as('moneyplane')
   //   cy.wait('@moneyplane').then((interception) => {
