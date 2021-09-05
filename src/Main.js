@@ -64,6 +64,7 @@ class Main extends React.Component {
           return (
             <main className='main-section'>
               <div className='search-container'>
+                <label for='search'>Search By Title</label>
                 <input
                   className='search-bar'
                   type='text'
