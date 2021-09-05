@@ -72,7 +72,7 @@ class Main extends React.Component {
                 onChange={event => this.searchMovies(event)}
                 />
                 <Posters
-                title={this.state.filteredMovies.length ? 'Your Found Movies' : 'All Movies'}
+                title='All Movies'
                 movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
                 key={(Date.now() + 1)}/>
                 <List key={Date.now()}/>
