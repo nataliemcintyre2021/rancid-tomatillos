@@ -63,13 +63,15 @@ class Main extends React.Component {
         <Route exact path="/" render={() => {
           return (
             <main className='main-section'>
-              <input
-              className='search-bar'
-              type='text'
-              placeholder='Search by title'
-              name='search'
-              onChange={event => this.searchMovies(event)}
-              />
+              <div className='search-container'>
+                <input
+                  className='search-bar'
+                  type='text'
+                  placeholder='Search by title'
+                  name='search'
+                  onChange={event => this.searchMovies(event)}
+                />
+              </div>
               <Posters
               title='All Movies'
               movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}

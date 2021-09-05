@@ -1,10 +1,18 @@
 .main-section {
-  /* height: 500px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.search-container {
+  width: 100%;
+  margin-top: 75px;
+  display: flex;
+  justify-content: center;
 }
 
 .search-bar {
-  position: fixed;
-  right: 0;
+width: 200px;
 }
 
 .hidden {
