@@ -28,6 +28,7 @@ class Main extends React.Component {
       this.setState({
         loading: false,
         movieData: data.movies,
+        filteredMovies: [],
       })
     })
     .catch(error => this.setState({error: error.message}))
@@ -58,11 +59,46 @@ class Main extends React.Component {
         <p>'Loading...'</p>
       )
     }
+
+    if(this.state.filteredMovies.length) {
+      return (
+        <main className='main-section'>
+
+          <Posters
+          title='All Movies'
+          movieData={this.state.movieData}
+          key={(Date.now() + 1)}
+          />
+          <input
+          className='search-bar'
+          type='text'
+          placeholder='Search by title'
+          name='search'
+          onChange={event => this.searchMovies(event)}
+          />
+          <Posters
+          title='Your Searched Movies'
+          movieData={this.state.filteredMovies}
+          key={(Date.now() + 3)}
+          />
+          <List key={Date.now()}/>
+
+        </main>
+      )
+    }
+
+
     return (
       <>
         <Route exact path="/" render={() => {
           return (
             <main className='main-section'>
+
+              <Posters
+              title='Movies'
+              movieData={this.state.movieData}
+              key={(Date.now() + 1)}
+              />
               <input
               className='search-bar'
               type='text'
@@ -70,12 +106,10 @@ class Main extends React.Component {
               name='search'
               onChange={event => this.searchMovies(event)}
               />
-              <Posters
-              title='All Movies'
-              movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
-              key={(Date.now() + 1)}/>
               <List key={Date.now()}/>
-            </main> )
+
+            </main>
+          )
           }
         }/>
         <Route exact path="/:id" render={({ match }) => {
