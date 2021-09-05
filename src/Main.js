@@ -71,7 +71,6 @@ class Main extends React.Component {
               name='search'
               onChange={event => this.searchMovies(event)}
               />
-
               <Posters
               title='All Movies'
               movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
