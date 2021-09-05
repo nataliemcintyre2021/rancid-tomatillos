@@ -9,15 +9,18 @@ class ExtendedView extends React.Component {
     super();
     this.state = {
       singleMovieData: {},
-      error: ''
+      error: '',
+      loading: false
     }
   }
 
   componentDidMount() {
+    this.setState({loading: true})
     fetchSingleMoviePoster(this.props.id)
       .then(data => {
         this.setState({
-           singleMovieData: data.movie
+          loading: false,
+          singleMovieData: data.movie
         })
       })
       .catch(error => this.setState({error: error.message}))
@@ -27,6 +30,11 @@ class ExtendedView extends React.Component {
     if(this.state.error) {
       return (
         <NoMatch />
+      )
+    }
+    if (this.state.loading) {
+      return (
+        <p>'Loading...'</p>
       )
     }
     return(
