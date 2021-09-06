@@ -14,13 +14,13 @@ describe('Expanded single movie poster view flow', () => {
   it('Should render a header', () => {
     cy.get('.single-poster').first().click()
     cy.get('header')
-      .contains('Nav goes here')
+      .contains('Rancid Tomatillos')
   })
 
   it('Should render a footer', () => {
     cy.get('.single-poster').first().click()
     cy.get('footer')
-      .contains('Footer goes here')
+      .contains('Project Developers')
   })
 
   it('Should fetch data for first movie card and render the correpsonding elements', () => {

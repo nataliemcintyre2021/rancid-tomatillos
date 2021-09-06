@@ -9,10 +9,3 @@ function Header() {
     )
 }
 export default Header
-
-
-// function Header() {
-//   return (
-//
-//   )
-// }
