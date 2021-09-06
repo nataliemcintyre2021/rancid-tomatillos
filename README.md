@@ -10,7 +10,6 @@ Module 3 Project for Turing School of Software and Design
   - [Technologies](#technologies)
   - [Code Architecture](#code-architecture)
   - [Illustrations](#illustrations)
-  - [Install + Setup](#set-up)
   - [Wins](#wins)
   - [Challenges + Improvements](#challenges-+-Improvements)
   - [Project Specs](#project-specs)
@@ -54,9 +53,6 @@ component would update or change the data was displaying. Our structure with eac
 ![list](/assets/list.gif)
 
 ![loading](assets/loading.gif)
-
-## Install + Setup
-	- Clone down this repo
 
 ## Wins
 - We successfully focused on our learning goals to ultimately make those our priority over adding additional functionality (definitely room for many future iterations!)
