@@ -1,5 +1,5 @@
 beforeEach(() => {
-  cy.visit('http://localhost:3000/movies')
+  cy.visit('http://localhost:3000/')
 })
 
 describe('Main movie cards display of App', () => {
@@ -13,11 +13,12 @@ describe('Main movie cards display of App', () => {
   })
 
   it('Should render a header component', () => {
-    cy.get('header').find('nav').contains('Nav goes here')
+    cy.get('header').find('nav').contains('Rancid Tomatillos')
   })
 
   it('Should render a component that displays all the movie cards', () => {
-    cy.get('main div:first').find('h2').contains('All Movies')
+    cy.get('.main-section').children()
+      .find('h2').contains('All Movies')
     cy.get('main').find('.row-of-posters')
   })
 
@@ -31,16 +32,16 @@ describe('Main movie cards display of App', () => {
   })
 
   it('Should display render a footer component', () => {
-    cy.get('footer').contains('Footer goes here')
+    cy.get('footer').find('h4').contains('Project Developers')
   });
 
   it('Should fecth data for the 2 stubbed movies cards and render the correpsonding elements', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies'}).as('movies')
-    cy.visit('http://localhost:3000/movies')
     cy.wait('@movies').then((interception) => {
       'response.ok'
     })
-    cy.get('main div:first').find('h2').contains('All Movies')
+    cy.get('.main-section').children()
+      .find('h2').contains('All Movies')
     cy.get('main').find('a').should('have.length', 2)
     cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
     cy.get('ul').find('li').should('have.length', 2)
