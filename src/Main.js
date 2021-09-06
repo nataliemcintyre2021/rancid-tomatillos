@@ -55,7 +55,10 @@ class Main extends React.Component {
     }
     if (this.state.loading) {
       return (
-        <p>'Loading...'</p>
+        <section className='loading-container'>
+          <p className='loading-text'>Loading...  😎</p>
+        </section>
+
       )
     }
     return (
@@ -63,13 +66,16 @@ class Main extends React.Component {
         <Route exact path="/" render={() => {
           return (
             <main className='main-section'>
-              <input
-              className='search-bar'
-              type='text'
-              placeholder='Search by title'
-              name='search'
-              onChange={event => this.searchMovies(event)}
-              />
+              <div className='search-container'>
+                <label for='search'>Search By Title</label>
+                <input
+                  className='search-bar'
+                  type='text'
+                  placeholder='Search by title'
+                  name='search'
+                  onChange={event => this.searchMovies(event)}
+                />
+              </div>
               <Posters
               title='All Movies'
               movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}

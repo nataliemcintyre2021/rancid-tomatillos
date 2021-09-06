@@ -11,7 +11,7 @@ function Posters(props) {
   )
 
   return (
-    <div className='posters-container'>
+    <div className='posters-container' key={Date.now() * 10}>
       <h2 className='posters-title'>{props.title}</h2>
       <div className="row-of-posters">
         {movies}
