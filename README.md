@@ -45,7 +45,15 @@ component would update or change the data was displaying. Our structure with eac
 
 ## Illustrations
 
-Use [https://gifcap.dev/](https://gifcap.dev/) to make GIFs
+![search](/assets/search.gif)
+
+![scroll](/assets/scroll.gif)
+
+![expanded](/assets/expanded.gif)
+
+![list](/assets/list.gif)
+
+![loading](assets/loading.gif)
 
 ## Install + Setup
 	- Clone down this repo
