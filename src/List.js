@@ -35,7 +35,7 @@ class List extends React.Component {
     return (
       <div className='list-wrapper'>
         <h2 className='rating-header'>Movies by Ratings</h2>
-        <button className='sort-button'>Sort</button>
+        <button className='sort-button'>📈 SORT ALL</button>
         <ul className='list'>
           { list }
         </ul>
