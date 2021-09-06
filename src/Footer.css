@@ -1,8 +1,28 @@
 .footer {
-  height: 100px;
+  height: 75px;
   width: 100%;
-  border: 4px solid black;
   /* position: fixed;
   bottom: 0; */
-  background-color: lightcoral;
+  background-color: transparent;
+}
+h4 {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  font-size: 0.9em
+}
+
+.link-container {
+  height: 60px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.75em;
 }

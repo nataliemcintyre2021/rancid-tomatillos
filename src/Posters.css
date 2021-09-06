@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 80px;
   margin-left: 20px;
   padding-left: 20px;
   overflow-y: hidden;
@@ -18,12 +17,18 @@
    width: 250px;
    height: 350px;
    margin: 10px;
+   transition: transform 425ms;
  }
 
  .posters-title {
    font-family: 'Bebas Neue', cursive;
    font-size: 5.5vh;
  }
+
+ .single-poster:hover {
+  transform: scale(1.08);
+}
+
 
  /* .row-container::-webkit-scrollbar {
   /* this is sayng; hey all browsers, don't display the scroll bar,
