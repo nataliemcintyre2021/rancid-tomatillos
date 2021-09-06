@@ -40,8 +40,8 @@ describe('Main movie cards display of App', () => {
     cy.wait('@movies').then((interception) => {
       'response.ok'
     })
-    cy.get('.main-section').children()
-      .find('h2').contains('All Movies')
+    cy.get('.main-section').children().find('h2').contains('All Movies')
+    cy.get('.main-section').children().find('.search-bar').type('Money').get
     cy.get('main').find('a').should('have.length', 2)
     cy.get('.list-wrapper').find('h2').contains('Movies by Ratings')
     cy.get('ul').find('li').should('have.length', 2)
