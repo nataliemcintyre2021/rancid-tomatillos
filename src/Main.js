@@ -3,7 +3,7 @@ import Posters from './Posters'
 import ExtendedView from './ExtendedView'
 import List from './List'
 import Error from './Error'
-import NoMatch from './NoMatch'
+// import NoMatch from './NoMatch'
 import './Main.css'
 import {getAllMovies} from './apiCalls'
 import { Route } from 'react-router-dom';
