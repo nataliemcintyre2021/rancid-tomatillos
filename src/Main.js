@@ -47,6 +47,10 @@ class Main extends React.Component {
     this.setState({ filteredMovies: foundMovies})
   }
 
+  determineMoviesToRender = () => {
+    return !this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies
+  }
+
   render() {
     if(this.state.error) {
       return (
@@ -72,7 +76,7 @@ class Main extends React.Component {
               />
               <Posters
               title='All Movies'
-              movieData={!this.state.filteredMovies.length ? this.state.movieData : this.state.filteredMovies}
+              movieData={this.determineMoviesToRender()}
               key={(Date.now() + 1)}/>
               <List key={Date.now()}/>
             </main> )
