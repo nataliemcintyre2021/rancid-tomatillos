@@ -26,6 +26,7 @@ class List extends React.Component {
     this.setState({clickedSort: [parseInt(this.state.clickedSort) + 1] })
   }
 
+
   render() {
     let sortedByRating = this.state.listData.sort((a, b) => b.average_rating - a.average_rating)
     const list = sortedByRating.map(movie => {
@@ -45,16 +46,27 @@ class List extends React.Component {
         </li>
       )
     })
-
-    return (
-      <div className='list-wrapper'>
-        <h2 className='rating-header'>Movies by Ratings</h2>
-        <button className='sort-button' onClick={() => this.updateSort()}>📈 SORT ALL</button>
-        <ul className='list'>
-          {this.state.clickedSort % 2 == 0 ? list : reSortedList }
-        </ul>
-      </div>
-    )
+    if (this.state.clickedSort % 2 == 0)  {
+      return (
+        <div className='list-wrapper'>
+          <h2 className='rating-header'>Movies by Ratings</h2>
+          <button className='sort-button' onClick={() => this.updateSort()}>📈 SORT ALL</button>
+          <ul className='list'>
+            { list }
+          </ul>
+        </div>
+      )
+    } else {
+      return (
+        <div className='list-wrapper'>
+          <h2 className='rating-header'>Movies by Ratings</h2>
+          <button className='sort-button' onClick={() => this.updateSort()}>📈 SORT ALL</button>
+          <ul className='list'>
+            { reSortedList }
+          </ul>
+        </div>
+      )
+    }
   }
 }
 
