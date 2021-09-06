@@ -12,6 +12,5 @@ export const checkForErrors = (response) => {
   if (!response.ok) {
     throw new Error(`${response.status} - something went wrong. ${response.statusText}`);
   }
-  console.log("RESPONSE", response)
   return response.json()
 }

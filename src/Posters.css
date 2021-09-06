@@ -20,9 +20,15 @@
    transition: transform 425ms;
  }
 
+ .posters-title {
+   font-family: 'Bebas Neue', cursive;
+   font-size: 5.5vh;
+ }
+
  .single-poster:hover {
   transform: scale(1.08);
 }
+
 
  /* .row-container::-webkit-scrollbar {
   /* this is sayng; hey all browsers, don't display the scroll bar,
