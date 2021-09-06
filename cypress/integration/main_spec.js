@@ -51,4 +51,26 @@ describe('Main movie cards display of App', () => {
     cy.get('ul').find('li').should('have.length', 2)
   })
 
+  it('Should be able to search for movies by title', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies'}).as('movies')
+    cy.visit('http://localhost:3000/')
+    cy.wait('@movies').then((interception) => {
+      'response.ok'
+    })
+    cy.get('input').type('Mon')
+    cy.get('main').find('a').should('have.length', 1)
+  })
+
+  it('Should be able to visit the found movie\'s info page', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies'}).as('movies')
+    cy.visit('http://localhost:3000/')
+    cy.wait('@movies').then((interception) => {
+      'response.ok'
+    })
+    cy.get('input').type('Mon')
+    cy.get('main').find('a').click()
+    cy.url().should('include', '/694919')
+  })
+
+
 })// End describe block
